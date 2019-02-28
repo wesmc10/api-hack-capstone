@@ -20,8 +20,22 @@
                 <input type="text" id="food-type" name="food-type" placeholder="Search" required>
                 <button type="submit">Submit</button>
             </form>
-            
+
             <p id="js-error-message" class="error-message"></p>
+
+            <section id="search-results" class="hidden">
+                <div class="recipes-container">
+                    <h2>Recipes</h2>
+                    <ul id="individual-results">
+                    </ul>
+                </div>
+
+                <div class="videos-container">
+                </div>
+                
+                <div class="nutriton-container">
+                </div>
+            </section>
         </main>
 
         <script src="script.js"></script>

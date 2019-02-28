@@ -6,26 +6,57 @@
 
 header {
     background-color: darkgray;
-    height: 100px;
+    height: 70px;
     width: 100%;
     position: fixed;
+    top: 0;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 15px;
 }
 
 main {
     background-color: lightgray;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
-h1 {
+.description {
     text-align: center;
-    padding-top: 30px;
+    padding-top: 330px;
+}
+
+.search-form {
+    text-align: center;
 }
 
 .error-message {
     color: red;
     text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.search-nav {
+    padding-top: 70px;
+    height: 20px;
+    width: 100%;
+    position: fixed;
+}
+
+h2 {
+    text-align: center;
+}
+
+#search-results {
+    padding-top: 120px;
+    padding-left: 30px;
+    text-align: left;
+}
+
+#individual-results {
+    display: inline-block;
 }

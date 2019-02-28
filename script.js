@@ -1,5 +1,20 @@
 'use strict'
 
+function displayTextRecipeResults(responseJson) {
+    console.log(responseJson);
+    for (let i = 0; i < responseJson.hits.length; i++) {
+        $('#individual-results').append(
+            `<li>
+                <h3><a href="${responseJson.hits[i].recipe.url}" target="_blank">${responseJson.hits[i].recipe.label}</a></h3>
+            </li>`
+        );
+    }
+
+    $('#search-results').removeClass('hidden');
+    $('.description').addClass('hidden');
+    $('.js-search-form').addClass('search-nav');
+}
+
 function formatTextRecipeParams(params) {
     const queryItems = Object.keys(params).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`);
     return queryItems.join('&');
@@ -13,6 +28,8 @@ function getTextRecipes(userInput) {
         q: userInput,
         app_id: appId,
         app_key: apiKey,
+        from: 0,
+        to: 15,
     };
     const queryString = formatTextRecipeParams(params);
     const url = searchUrl + '?' + queryString;
