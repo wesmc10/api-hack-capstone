@@ -1,6 +1,6 @@
 'use strict'
 
-/*function displayTextRecipeResults(responseJson) {
+function displayTextRecipeResults(responseJson) {
     console.log(responseJson);
     for (let i = 0; i < responseJson.hits.length; i++) {
         $('#text-individual-results').append(
@@ -20,28 +20,28 @@
     $('.container').addClass('flexbox-column');
 }
 
-function formatTextRecipeParams(params) {
-    const queryItems = Object.keys(params).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`);
-    return queryItems.join('&');
+function formatTextRecipeParams(textParams) {
+    const textQueryItems = Object.keys(textParams).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(textParams[key])}`);
+    return textQueryItems.join('&');
 }
 
 function getTextRecipes(userInput) {
-    const appId = 'c16d6370';
-    const apiKey = '1ecbadb5ded7c6e582274ce1bdd43b2a';
-    const searchUrl = 'https://api.edamam.com/search';
-    const params = {
+    const textAppId = config.textAppId;
+    const textApiKey = config.textApiKey;
+    const textSearchUrl = 'https://api.edamam.com/search';
+    const textParams = {
         q: userInput,
-        app_id: appId,
-        app_key: apiKey,
+        app_id: textAppId,
+        app_key: textApiKey,
         from: 0,
         to: 8,
     };
-    const queryString = formatTextRecipeParams(params);
-    const url = searchUrl + '?' + queryString;
+    const textQueryString = formatTextRecipeParams(textParams);
+    const textUrl = textSearchUrl + '?' + textQueryString;
 
-    console.log(url);
+    console.log(textUrl);
 
-    fetch(url)
+    fetch(textUrl)
     .then(response => {
         if(response.ok) {
             return response.json();
@@ -67,35 +67,31 @@ function displayRecipeVideoResults(responseJson) {
             </li>`
         );
     }
-
-    //$('#search-results').removeClass('hidden');
-    //$('.description').addClass('hidden');
-    //$('.js-search-form').addClass('search-nav');
 }
 
-function formatVideoRecipeParams(params) {
-    const queryItems = Object.keys(params).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`);
-    return queryItems.join('&');
+function formatVideoRecipeParams(vidParams) {
+    const vidQueryItems = Object.keys(vidParams).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(vidParams[key])}`);
+    return vidQueryItems.join('&');
 }
 
 function getRecipeVideos(userInput) {
-    const apiKey = 'AIzaSyBaSFkq0Cvxl_3eoA_n_DSrflba4SHorMw';
-    const searchUrl = 'https://www.googleapis.com/youtube/v3/search';
-    const params = {
+    const vidApiKey = config.vidApiKey;
+    const vidSearchUrl = 'https://www.googleapis.com/youtube/v3/search';
+    const vidParams = {
         part: 'snippet',
-        key: apiKey,
+        key: vidApiKey,
         q: userInput + 'recipes',
         maxResults: 8,
         safeSearch: 'strict',
         type: 'video',
         relevanceLanguage: 'en',
     };
-    const queryString = formatVideoRecipeParams(params);
-    const url = searchUrl + '?' + queryString;
+    const vidQueryString = formatVideoRecipeParams(vidParams);
+    const vidUrl = vidSearchUrl + '?' + vidQueryString;
 
-    console.log(url);
+    console.log(vidUrl);
 
-    fetch(url)
+    fetch(vidUrl)
     .then(response => {
         if (response.ok) {
             return response.json();
@@ -106,38 +102,38 @@ function getRecipeVideos(userInput) {
     .catch(error => {
         $('#js-error-message').text(`Something went wrong: ${error.message}`);
     });
-}*/
+}
 
 function displayNutritionInfoResults(responseJson) {
     console.log(responseJson);
 }
 
-function formatNutritionInfoParams(params) {
-    const queryItems = Object.keys(params).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`);
-    return queryItems.join('&');
+function formatNutritionInfoParams(nutParams) {
+    const nutQueryItems = Object.keys(nutParams).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(nutParams[key])}`);
+    return nutQueryItems.join('&');
 }
 
 function getNutritionInfo(userInput) {
-    const appId = '6cab22bc';
-    const apiKey = '465ee2bcbbae8b0562cfed7aa48a9a9a';
-    const searchUrl = 'https://trackapi.nutritionix.com/v2/search/instant';
-    const params = {
+    const nutAppId = config.nutAppId;
+    const nutApiKey = config.nutApiKey;
+    const nutSearchUrl = 'https://trackapi.nutritionix.com/v2/search/instant';
+    const nutParams = {
         query: userInput,
         branded: false,
     };
-    const queryString = formatNutritionInfoParams(params);
-    const url = searchUrl + '?' + queryString;
+    const nutQueryString = formatNutritionInfoParams(nutParams);
+    const nutUrl = nutSearchUrl + '?' + nutQueryString;
 
-    console.log(url);
+    console.log(nutUrl);
 
     const options = {
         headers: new Headers({
-            'x-app-id': appId,
-            'x-app-key': apiKey,
+            'x-app-id': nutAppId,
+            'x-app-key': nutApiKey,
         })
     };
 
-    fetch(url, options)
+    fetch(nutUrl, options)
     .then(response => {
         if (response.ok) {
             return response.json();
