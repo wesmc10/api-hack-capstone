@@ -86,7 +86,7 @@ function displayRecipeVideoResults(responseJson) {
                 </a>
             </li>`
         );
-    }  
+    }
 }
 
 function formatVideoRecipeParams(vidParams) {
@@ -173,6 +173,7 @@ function getNutritionInfo(userInput) {
     .then(responseJson => displayNutritionInfoResults(responseJson))
     .catch(error => {
         $('#js-error-message').text(`Something went wrong: ${error.message}`);
+        $('#nut-individual-results').empty();
         $('#nut-individual-results').append('Sorry, I could not find any nutrition information for that food item. Please try modifying your search.');
     })
 }
@@ -196,7 +197,7 @@ function watchForm() {
     $('.js-search-form').submit(event => {
         event.preventDefault();
         let userInput = $('#food-type').val();
-        getTextRecipes(userInput);
+        //getTextRecipes(userInput);
         getRecipeVideos(userInput);
         getNutritionInfo(userInput);
         scrollToRecipes();
