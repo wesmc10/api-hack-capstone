@@ -33,8 +33,8 @@ function formatTextRecipeParams(textParams) {
 }
 
 function getTextRecipes(userInput) {
-    const textAppId = config.textAppId;
-    const textApiKey = config.textApiKey;
+    const textAppId = 'c16d6370';
+    const textApiKey = '1ecbadb5ded7c6e582274ce1bdd43b2a';
     const textSearchUrl = 'https://api.edamam.com/search';
     const textParams = {
         q: userInput,
@@ -95,7 +95,7 @@ function formatVideoRecipeParams(vidParams) {
 }
 
 function getRecipeVideos(userInput) {
-    const vidApiKey = config.vidApiKey;
+    const vidApiKey = 'AIzaSyBaSFkq0Cvxl_3eoA_n_DSrflba4SHorMw';
     const vidSearchUrl = 'https://www.googleapis.com/youtube/v3/search';
     const vidParams = {
         part: 'snippet',
@@ -149,8 +149,8 @@ function displayNutritionInfoResults(responseJson) {
 }
 
 function getNutritionInfo(userInput) {
-    const nutAppId = config.nutAppId;
-    const nutApiKey = config.nutApiKey;
+    const nutAppId = '6cab22bc';
+    const nutApiKey = '465ee2bcbbae8b0562cfed7aa48a9a9a';
     const url = 'https://trackapi.nutritionix.com/v2/natural/nutrients';
     const data = {'query': userInput};
 
