@@ -49,6 +49,13 @@ main {
     align-items: center;
 }
 
+.flexbox-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .search-nav {
     padding-top: 70px;
     height: 20px;
@@ -88,6 +95,14 @@ ul {
     margin-left: 0;
 }
 
-.recipes-header {
+.nutrition-header {
     padding-top: 40px;
+}
+
+.recipes-header {
+    padding-top: 20px;
+}
+
+.videos-header {
+    padding-top: 20px;
 }

@@ -106,34 +106,42 @@ function getRecipeVideos(userInput) {
 
 function displayNutritionInfoResults(responseJson) {
     console.log(responseJson);
-}
 
-function formatNutritionInfoParams(nutParams) {
-    const nutQueryItems = Object.keys(nutParams).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(nutParams[key])}`);
-    return nutQueryItems.join('&');
+    $('#nut-individual-results').append(
+        `<li>
+            <h3>${responseJson.foods[0].food_name}</h3>
+            <p>Serving Size: ${responseJson.foods[0].serving_qty} ${responseJson.foods[0].serving_unit} (${responseJson.foods[0].serving_weight_grams}g)</p>
+            <p><h4>Amount Per Serving</h4></p>
+            <p>Calories: ${responseJson.foods[0].nf_calories}</p>
+            <p>Total Fat: ${responseJson.foods[0].nf_total_fat}g</p>
+            <p>Saturated Fat: ${responseJson.foods[0].nf_saturated_fat}g</p>
+            <p>Cholesterol: ${responseJson.foods[0].nf_cholesterol}mg</p>
+            <p>Sodium: ${responseJson.foods[0].nf_sodium}mg</p>
+            <p>Potassium: ${responseJson.foods[0].nf_potassium}mg</p>
+            <p>Total Carbohydrates: ${responseJson.foods[0].nf_total_carbohydrate}g</p>
+            <p>Dietary Fiber: ${responseJson.foods[0].nf_dietary_fiber}g</p>
+            <p>Sugars: ${responseJson.foods[0].nf_sugars}g</p>
+            <p>Protein: ${responseJson.foods[0].nf_protein}g</p>
+        </li>`
+    );
 }
 
 function getNutritionInfo(userInput) {
     const nutAppId = config.nutAppId;
     const nutApiKey = config.nutApiKey;
-    const nutSearchUrl = 'https://trackapi.nutritionix.com/v2/search/instant';
-    const nutParams = {
-        query: userInput,
-        branded: false,
-    };
-    const nutQueryString = formatNutritionInfoParams(nutParams);
-    const nutUrl = nutSearchUrl + '?' + nutQueryString;
+    const url = 'https://trackapi.nutritionix.com/v2/natural/nutrients';
+    const data = {'query': userInput};
 
-    console.log(nutUrl);
-
-    const options = {
-        headers: new Headers({
-            'x-app-id': nutAppId,
-            'x-app-key': nutApiKey,
-        })
-    };
-
-    fetch(nutUrl, options)
+    fetch(url, {
+      method: 'POST',
+      mode: 'cors',
+      headers: new Headers({
+        'x-app-id': nutAppId,
+        'x-app-key': nutApiKey,
+        'Content-Type': 'application/json',
+      }),
+      body: JSON.stringify(data),
+    })
     .then(response => {
         if (response.ok) {
             return response.json();
@@ -143,7 +151,7 @@ function getNutritionInfo(userInput) {
     .then(responseJson => displayNutritionInfoResults(responseJson))
     .catch(error => {
         $('#js-error-message').text(`Something went wrong: ${error.message}`);
-    });
+    })
 }
 
 function watchForm() {
@@ -151,8 +159,8 @@ function watchForm() {
     $('form').submit(event => {
         event.preventDefault();
         const userInput = $('#food-type').val();
-        //getTextRecipes(userInput);
-        //getRecipeVideos(userInput);
+        getTextRecipes(userInput);
+        getRecipeVideos(userInput);
         getNutritionInfo(userInput);
         $('#food-type').val('');
     });
