@@ -106,14 +106,6 @@ ul {
     margin-left: 0;
 }
 
-.nutrition-header {
+.nutrition-header, .recipes-header, .videos-header {
     padding-top: 40px;
-}
-
-.recipes-header {
-    padding-top: 20px;
-}
-
-.videos-header {
-    padding-top: 20px;
 }

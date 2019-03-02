@@ -179,14 +179,14 @@ function getNutritionInfo(userInput) {
 function scrollToRecipes() {
     $('#nav').on('click', '#recipes', function(event) {
         event.preventDefault();
-        $('html, body').animate({scrollTop: $('#recipes-container')}, 'slow');
+        $('html, body').animate({scrollTop: $('#recipes-container').offset().top - 70}, 'slow');
     });
 }
 
 function scrollToVideos() {
     $('#nav').on('click', '#videos', function(event) {
         event.preventDefault();
-        $('html, body').animate({scrollTop: $('#videos-container')}, 'slow');
+        $('html, body').animate({scrollTop: $('#videos-container').offset().top - 70}, 'slow');
     });
 }
 
