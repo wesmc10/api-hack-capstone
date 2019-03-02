@@ -48,7 +48,13 @@ function getTextRecipes(userInput) {
 
     console.log(textUrl);
 
-    fetch(textUrl)
+    const options = {
+        headers: new Headers({
+            'Accept-Encoding': 'gzip'
+        })
+    };
+
+    fetch(textUrl, options)
     .then(response => {
         if(response.ok) {
             return response.json();
