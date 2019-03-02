@@ -80,12 +80,7 @@ function displayRecipeVideoResults(responseJson) {
                 </a>
             </li>`
         );
-    }
-
-    $('#search-results').removeClass('hidden');
-    $('.description').addClass('hidden');
-    $('.js-search-form').addClass('search-nav');
-    $('.container').addClass('flexbox-column');    
+    }  
 }
 
 function formatVideoRecipeParams(vidParams) {
@@ -195,9 +190,9 @@ function watchForm() {
     $('.js-search-form').submit(event => {
         event.preventDefault();
         let userInput = $('#food-type').val();
-        //getTextRecipes(userInput);
+        getTextRecipes(userInput);
         getRecipeVideos(userInput);
-        //getNutritionInfo(userInput);
+        getNutritionInfo(userInput);
         scrollToRecipes();
         scrollToVideos();
         $('#title').addClass('hidden');

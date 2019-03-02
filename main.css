@@ -66,12 +66,12 @@ main {
     align-items: center;
 }
 
-/*something about this makes the autoscroll not work*/
 .search-nav {
     top: 70px;
-    left: 20%;
-    text-align: center;
+    left: 50%;
     position: fixed;
+    transform: translate(-50%, 0);
+    width: 193px;
 }
 
 h2 {
