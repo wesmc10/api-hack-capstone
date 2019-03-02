@@ -10,8 +10,10 @@
     </head>
 
     <body>
-        <header>
-            <h1>Title</h1>
+        <header id="nav">
+            <h1 id="title">Title</h1>
+            <h1 id="recipes" class="hidden"><a href="#recipes-container">Recipes</a></h1>
+            <h1 id="videos" class="hidden"><a href="#videos-container">Videos</a></h1>
         </header>
 
         <main role="main">
@@ -24,19 +26,19 @@
             <p id="js-error-message" class="error-message"></p>
 
             <section id="search-results" class="hidden">
-                <div class="nutriton-container container">
+                <div class="container" id="nutrition-container">
                     <h2 class="nutrition-header">NUTRITION FACTS</h2>
                     <ul id="nut-individual-results">
                     </ul>
                 </div>
 
-                <div class="recipes-container container">
+                <div class="container" id="recipes-container">
                     <h2 class="recipes-header">RECIPES</h2>
                     <ul id="text-individual-results">
                     </ul>
                 </div>
 
-                <div class="videos-container container">
+                <div class="container" id="videos-container">
                     <h2 class="videos-header">VIDEOS</h2>
                     <ul id="vid-individual-results">
                     </ul>

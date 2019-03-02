@@ -4,7 +4,7 @@
     padding: 0;
 }
 
-header {
+#nav {
     background-color: darkgray;
     height: 70px;
     width: 100%;
@@ -12,6 +12,16 @@ header {
     top: 0;
     left: 0;
     right: 0;
+}
+
+#recipes {
+    padding-bottom: 15px;
+    padding-left: 3%;
+}
+
+#videos {
+    padding-bottom: 15px;
+    padding-right: 3%;
 }
 
 h1 {
@@ -56,10 +66,11 @@ main {
     align-items: center;
 }
 
+/*something about this makes the autoscroll not work*/
 .search-nav {
-    padding-top: 70px;
-    height: 20px;
-    width: 100%;
+    top: 70px;
+    left: 20%;
+    text-align: center;
     position: fixed;
 }
 
@@ -85,12 +96,12 @@ ul {
     height: 90px;
 }
 
-.recipes-container {
+#recipes-container {
     background-color: lightgreen;
     margin-left: 0;
 }
 
-.videos-container {
+#videos-container {
     background-color: lightblue;
     margin-left: 0;
 }

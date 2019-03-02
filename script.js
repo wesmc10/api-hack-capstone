@@ -2,6 +2,13 @@
 
 function displayTextRecipeResults(responseJson) {
     console.log(responseJson);
+
+    $('#text-individual-results').empty();
+
+    if (responseJson.hits.length === 0) {
+        $('#text-individual-results').append('Sorry, I could not find any recipes for that food item. Please try modifying your search.');
+    }
+
     for (let i = 0; i < responseJson.hits.length; i++) {
         $('#text-individual-results').append(
             `<li>
@@ -17,7 +24,7 @@ function displayTextRecipeResults(responseJson) {
     $('#search-results').removeClass('hidden');
     $('.description').addClass('hidden');
     $('.js-search-form').addClass('search-nav');
-    $('.container').addClass('flexbox-column');
+    $('.container').addClass('flexbox-column');  
 }
 
 function formatTextRecipeParams(textParams) {
@@ -56,6 +63,13 @@ function getTextRecipes(userInput) {
 
 function displayRecipeVideoResults(responseJson) {
     console.log(responseJson);
+
+    $('#vid-individual-results').empty();
+
+    if (responseJson.items.length === 0) {
+        $('#vid-individual-results').append('Sorry, I could not find any recipes for that food item. Please try modifying your search.');
+    }
+
     for (let i = 0; i < responseJson.items.length; i++) {
         $('#vid-individual-results').append(
             `<li>
@@ -67,6 +81,11 @@ function displayRecipeVideoResults(responseJson) {
             </li>`
         );
     }
+
+    $('#search-results').removeClass('hidden');
+    $('.description').addClass('hidden');
+    $('.js-search-form').addClass('search-nav');
+    $('.container').addClass('flexbox-column');    
 }
 
 function formatVideoRecipeParams(vidParams) {
@@ -106,6 +125,8 @@ function getRecipeVideos(userInput) {
 
 function displayNutritionInfoResults(responseJson) {
     console.log(responseJson);
+
+    $('#nut-individual-results').empty();
 
     $('#nut-individual-results').append(
         `<li>
@@ -151,17 +172,38 @@ function getNutritionInfo(userInput) {
     .then(responseJson => displayNutritionInfoResults(responseJson))
     .catch(error => {
         $('#js-error-message').text(`Something went wrong: ${error.message}`);
+        $('#nut-individual-results').append('Sorry, I could not find any nutrition information for that food item. Please try modifying your search.');
     })
+}
+
+function scrollToRecipes() {
+    $('#nav').on('click', '#recipes', function(event) {
+        event.preventDefault();
+        $('html, body').animate({scrollTop: $('#recipes-container')}, 'slow');
+    });
+}
+
+function scrollToVideos() {
+    $('#nav').on('click', '#videos', function(event) {
+        event.preventDefault();
+        $('html, body').animate({scrollTop: $('#videos-container')}, 'slow');
+    });
 }
 
 function watchForm() {
     console.log('App is ready!');
-    $('form').submit(event => {
+    $('.js-search-form').submit(event => {
         event.preventDefault();
-        const userInput = $('#food-type').val();
-        getTextRecipes(userInput);
+        let userInput = $('#food-type').val();
+        //getTextRecipes(userInput);
         getRecipeVideos(userInput);
-        getNutritionInfo(userInput);
+        //getNutritionInfo(userInput);
+        scrollToRecipes();
+        scrollToVideos();
+        $('#title').addClass('hidden');
+        $('#recipes').removeClass('hidden');
+        $('#videos').removeClass('hidden');
+        $('#nav').addClass('flexbox-row');
         $('#food-type').val('');
     });
 }
