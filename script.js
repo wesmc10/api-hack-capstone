@@ -197,7 +197,7 @@ function watchForm() {
     $('.js-search-form').submit(event => {
         event.preventDefault();
         let userInput = $('#food-type').val();
-        //getTextRecipes(userInput);
+        getTextRecipes(userInput);
         getRecipeVideos(userInput);
         getNutritionInfo(userInput);
         scrollToRecipes();
