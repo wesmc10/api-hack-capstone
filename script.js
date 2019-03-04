@@ -1,5 +1,6 @@
 'use strict'
 
+
 function displayTextRecipeResults(responseJson) {
     console.log(responseJson);
 
@@ -27,10 +28,14 @@ function displayTextRecipeResults(responseJson) {
     $('.container').addClass('flexbox-column');  
 }
 
+
+
 function formatTextRecipeParams(textParams) {
     const textQueryItems = Object.keys(textParams).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(textParams[key])}`);
     return textQueryItems.join('&');
 }
+
+
 
 function getTextRecipes(userInput) {
     const textAppId = 'c16d6370';
@@ -67,6 +72,12 @@ function getTextRecipes(userInput) {
     });
 }
 
+
+//text recipes above
+/*==============================================================================================================*/
+//recipe videos below
+
+
 function displayRecipeVideoResults(responseJson) {
     console.log(responseJson);
 
@@ -87,12 +98,21 @@ function displayRecipeVideoResults(responseJson) {
             </li>`
         );
     }
+
+    $('#search-results').removeClass('hidden');
+    $('.description').addClass('hidden');
+    $('.js-search-form').addClass('search-nav');
+    $('.container').addClass('flexbox-column'); 
 }
+
+
 
 function formatVideoRecipeParams(vidParams) {
     const vidQueryItems = Object.keys(vidParams).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(vidParams[key])}`);
     return vidQueryItems.join('&');
 }
+
+
 
 function getRecipeVideos(userInput) {
     const vidApiKey = 'AIzaSyBaSFkq0Cvxl_3eoA_n_DSrflba4SHorMw';
@@ -124,6 +144,24 @@ function getRecipeVideos(userInput) {
     });
 }
 
+
+//recipe videos above
+/*==============================================================================================================*/
+//nutrition info below
+
+
+function capitalizeFirstLetter(string) {
+    let splitString = string.toLowerCase().split(' ');
+  
+    for (let i = 0; i < splitString.length; i++) {
+        splitString[i] = splitString[i].charAt(0).toUpperCase() + splitString[i].substring(1);     
+    }
+    
+    return splitString.join(' '); 
+}
+
+
+
 function displayNutritionInfoResults(responseJson) {
     console.log(responseJson);
 
@@ -131,22 +169,24 @@ function displayNutritionInfoResults(responseJson) {
 
     $('#nut-individual-results').append(
         `<li>
-            <h3>${responseJson.foods[0].food_name}</h3>
-            <p>Serving Size: ${responseJson.foods[0].serving_qty} ${responseJson.foods[0].serving_unit} (${responseJson.foods[0].serving_weight_grams}g)</p>
+            <h3>${capitalizeFirstLetter(responseJson.foods[0].food_name)}</h3>
+            <p>Serving Size: ${responseJson.foods[0].serving_qty} ${responseJson.foods[0].serving_unit} (${Math.round(responseJson.foods[0].serving_weight_grams)}g)</p>
             <p><h4>Amount Per Serving</h4></p>
-            <p>Calories: ${responseJson.foods[0].nf_calories}</p>
-            <p>Total Fat: ${responseJson.foods[0].nf_total_fat}g</p>
-            <p>Saturated Fat: ${responseJson.foods[0].nf_saturated_fat}g</p>
-            <p>Cholesterol: ${responseJson.foods[0].nf_cholesterol}mg</p>
-            <p>Sodium: ${responseJson.foods[0].nf_sodium}mg</p>
-            <p>Potassium: ${responseJson.foods[0].nf_potassium}mg</p>
-            <p>Total Carbohydrates: ${responseJson.foods[0].nf_total_carbohydrate}g</p>
-            <p>Dietary Fiber: ${responseJson.foods[0].nf_dietary_fiber}g</p>
-            <p>Sugars: ${responseJson.foods[0].nf_sugars}g</p>
-            <p>Protein: ${responseJson.foods[0].nf_protein}g</p>
+            <p>Calories: ${Math.round(responseJson.foods[0].nf_calories)}</p>
+            <p>Total Fat: ${Math.round(responseJson.foods[0].nf_total_fat)}g</p>
+            <p>Saturated Fat: ${Math.round(responseJson.foods[0].nf_saturated_fat)}g</p>
+            <p>Cholesterol: ${Math.round(responseJson.foods[0].nf_cholesterol)}mg</p>
+            <p>Sodium: ${Math.round(responseJson.foods[0].nf_sodium)}mg</p>
+            <p>Potassium: ${Math.round(responseJson.foods[0].nf_potassium)}mg</p>
+            <p>Total Carbohydrates: ${Math.round(responseJson.foods[0].nf_total_carbohydrate)}g</p>
+            <p>Dietary Fiber: ${Math.round(responseJson.foods[0].nf_dietary_fiber)}g</p>
+            <p>Sugars: ${Math.round(responseJson.foods[0].nf_sugars)}g</p>
+            <p>Protein: ${Math.round(responseJson.foods[0].nf_protein)}g</p>
         </li>`
     );
 }
+
+
 
 function getNutritionInfo(userInput) {
     const nutAppId = '6cab22bc';
@@ -178,12 +218,37 @@ function getNutritionInfo(userInput) {
     })
 }
 
+
+//nutrition info above
+/*==============================================================================================================*/
+//scroll features below
+
+
+function navBarUpOnScrollDown() {
+    let previousPosition = window.pageYOffset;
+
+    $(window).on('scroll', function(event) {
+        let currentPosition = window.pageYOffset;
+        if (currentPosition > previousPosition) {
+            $('#nav').slideUp();
+            $('.js-search-form').removeClass('search-nav').addClass('search-nav-scroll');
+        }
+        else {
+            $('#nav').slideDown();
+            $('.js-search-form').removeClass('search-nav-scroll').addClass('search-nav');
+        }
+        previousPosition = currentPosition;
+    });
+}
+
 function scrollToRecipes() {
     $('#nav').on('click', '#recipes', function(event) {
         event.preventDefault();
         $('html, body').animate({scrollTop: $('#recipes-container').offset().top - 70}, 'slow');
     });
 }
+
+
 
 function scrollToVideos() {
     $('#nav').on('click', '#videos', function(event) {
@@ -192,14 +257,22 @@ function scrollToVideos() {
     });
 }
 
+
+/*==============================================================================================================*/
+
+
 function watchForm() {
     console.log('App is ready!');
+    setTimeout(function(){ $('.initial-transition').addClass('hidden'); }, 1900);
     $('.js-search-form').submit(event => {
         event.preventDefault();
+        //$('.initial-transition').removeClass('hidden');
+        //setTimeout(function(){ $('.initial-transition').addClass('hidden'); }, 1900);
         let userInput = $('#food-type').val();
-        getTextRecipes(userInput);
+        //getTextRecipes(userInput);
         getRecipeVideos(userInput);
-        getNutritionInfo(userInput);
+        //getNutritionInfo(userInput);
+        navBarUpOnScrollDown()
         scrollToRecipes();
         scrollToVideos();
         $('#title').addClass('hidden');

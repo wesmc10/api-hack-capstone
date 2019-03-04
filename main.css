@@ -4,6 +4,56 @@
     padding: 0;
 }
 
+.initial-transition {
+    z-index: 1;
+    display: hidden;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0386c7;
+    position: absolute;
+    -webkit-animation-name: transitions;
+    -webkit-animation-duration: 2s;
+    animation-name: transitions;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(0.5, 0.15, 0.15, 1);
+}
+
+@-webkit-keyframes transitions {
+    0%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
+    25%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
+    100% {width: 0vw; height: 100vh; left: 100vw; top: 0px;}
+}
+
+@keyframes transitions {
+    0%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
+    25%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
+    100% {width: 0vw; height: 100vh; left: 100vw; top: 0px;}
+}
+
+/*.submit-transition {
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0386c7;
+    position: absolute;
+    -webkit-animation-name: transitions;
+    -webkit-animation-duration: 2s;
+    animation-name: transitions;
+    animation-duration: 2s;
+}
+
+@-webkit-keyframes transitions {
+    0%   {width: 0vw; height: 100vh; left: 0px; top: 0px;}
+    50%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
+    100% {width: 0vw; height: 100vh; left: 100vw; top: 0px;}
+}
+
+@keyframes transitions {
+    0%   {width: 0vw; height: 100vh; left: 0px; top: 0px;}
+    50%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
+    100% {width: 0vw; height: 100vh; left: 100vw; top: 0px;}
+}*/
+
 #nav {
     background: rgba(0,0,0,0.4);
     height: 120px;
@@ -51,9 +101,9 @@ main {
 
 input {
     background: rgba(255,255,255,0.3);
-    width: 250px;
-    height: 30px;
     padding-right: 50px;
+    width: 260px;
+    height: 30px;
     border: 1px solid black;
 }
 
@@ -62,9 +112,15 @@ button {
     height: 30px;
     width: 50px;
     border: 1px solid black;
+    background: #03c744 linear-gradient(to right, #0386c7, #0386c7);
+    background-repeat: no-repeat;
+    background-size: 0 100%;
+    transition: background-size 0.4s 0s;
+    color: black;
 }
 
 button:hover {
+    background-size: 100% 100%;
     cursor: pointer;
 }
 
@@ -103,12 +159,20 @@ button:hover {
     align-items: center;
 }
 
+.search-nav-scroll {
+    top: 0;
+    left: 50%;
+    position: fixed;
+    transform: translate(-50%, 0);
+    width: 260px;
+}
+
 .search-nav {
     top: 120px;
     left: 50%;
     position: fixed;
     transform: translate(-50%, 0);
-    width: 250px;
+    width: 260px;
 }
 
 h2 {
