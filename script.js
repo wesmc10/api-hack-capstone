@@ -234,7 +234,7 @@ function navBarUpOnScrollDown() {
 function scrollToRecipes() {
     $('#nav').on('click', '#recipes', function(event) {
         event.preventDefault();
-        $('html, body').animate({scrollTop: $('#recipes-container').offset().top - 70}, 'slow');
+        $('html, body').animate({scrollTop: $('#recipes-container').offset().top - 35}, 'slow');
     });
 }
 
@@ -243,7 +243,7 @@ function scrollToRecipes() {
 function scrollToVideos() {
     $('#nav').on('click', '#videos', function(event) {
         event.preventDefault();
-        $('html, body').animate({scrollTop: $('#videos-container').offset().top - 70}, 'slow');
+        $('html, body').animate({scrollTop: $('#videos-container').offset().top - 35}, 'slow');
     });
 }
 

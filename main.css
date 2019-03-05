@@ -67,7 +67,7 @@ body {
 
 .container a:link, .container a:visited {
     text-decoration: none;
-    color: antiquewhite;
+    color: black;
 }
 
 .container a:hover, .container a:focus {
@@ -127,6 +127,8 @@ header h1 {
 main {
     font-family: 'Open Sans', sans-serif;
     height: 100vh;
+    line-height: 1.5;
+    letter-spacing: 1px;
 }
 
 input {
@@ -168,7 +170,8 @@ button:hover {
 
 .description {
     text-align: center;
-    padding: 330px 10px 15px;
+    padding: 300px 10px 15px;
+    margin-bottom: 20px;
     color: antiquewhite;
     font-size: 18px;
 }
@@ -253,8 +256,9 @@ button:hover {
 }
 
 h2 {
+    font-family: 'Ubuntu', sans-serif;
     text-align: center;
-    color: antiquewhite;
+    color: black;
 }
 
 #search-results {
@@ -275,16 +279,21 @@ ul {
     height: 90px;
 }
 
-#nutrition-container, #recipes-container, #videos-container {
-    margin-left: 0;
+.container {
+    margin-left: 5%;
+    margin-right: 5%;
+    background: rgba(252, 94, 3, 0.8);
+    margin-bottom: 50px;
+    border-radius: 5px;
+    padding-bottom: 30px;
 }
 
 .nutrition-header, .recipes-header, .videos-header {
-    padding-top: 40px;
+    padding-top: 15px;
 }
 
 #nut-individual-results, #text-individual-results, #vid-individual-results {
-    color: antiquewhite;
+    color: black;
 }
 
 @media screen and (min-width: 1000px) {
