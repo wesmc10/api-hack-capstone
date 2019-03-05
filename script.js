@@ -20,12 +20,7 @@ function displayTextRecipeResults(responseJson) {
                 </a>
             </li>`
         );
-    }
-
-    $('#search-results').removeClass('hidden');
-    $('.description').addClass('hidden');
-    $('.js-search-form').addClass('search-nav');
-    $('.container').addClass('flexbox-column');  
+    }  
 }
 
 
@@ -98,11 +93,6 @@ function displayRecipeVideoResults(responseJson) {
             </li>`
         );
     }
-
-    $('#search-results').removeClass('hidden');
-    $('.description').addClass('hidden');
-    $('.js-search-form').addClass('search-nav');
-    $('.container').addClass('flexbox-column'); 
 }
 
 
@@ -230,12 +220,12 @@ function navBarUpOnScrollDown() {
     $(window).on('scroll', function(event) {
         let currentPosition = window.pageYOffset;
         if (currentPosition > previousPosition) {
-            $('#nav').slideUp();
-            $('.js-search-form').removeClass('search-nav').addClass('search-nav-scroll');
+            $('#nav').slideUp(365, 'linear');
+            $('.js-search-form').removeClass('search-nav search-nav-scroll-down').addClass('search-nav-scroll-up');
         }
         else {
-            $('#nav').slideDown();
-            $('.js-search-form').removeClass('search-nav-scroll').addClass('search-nav');
+            $('#nav').slideDown(365, 'linear');
+            $('.js-search-form').removeClass('search-nav-scroll-up').addClass('search-nav-scroll-down');
         }
         previousPosition = currentPosition;
     });
@@ -263,11 +253,12 @@ function scrollToVideos() {
 
 function watchForm() {
     console.log('App is ready!');
-    setTimeout(function(){ $('.initial-transition').addClass('hidden'); }, 1900);
+
+    $('body').addClass('overflow-hidden');
+    setTimeout(function(){ $('.transition').addClass('hidden'); }, 2000);
+
     $('.js-search-form').submit(event => {
         event.preventDefault();
-        //$('.initial-transition').removeClass('hidden');
-        //setTimeout(function(){ $('.initial-transition').addClass('hidden'); }, 1900);
         let userInput = $('#food-type').val();
         //getTextRecipes(userInput);
         getRecipeVideos(userInput);
@@ -275,10 +266,15 @@ function watchForm() {
         navBarUpOnScrollDown()
         scrollToRecipes();
         scrollToVideos();
+        $('body').removeClass('overflow-hidden');
         $('#title').addClass('hidden');
         $('#recipes').removeClass('hidden');
         $('#videos').removeClass('hidden');
-        $('#nav').addClass('flexbox-row');
+        $('#nav').removeClass('large-header').addClass('flexbox-row small-header');
+        $('#search-results').removeClass('hidden');
+        $('.description').addClass('hidden');
+        $('.js-search-form').addClass('search-nav');
+        $('.container').addClass('flexbox-column'); 
         $('#food-type').val('');
     });
 }

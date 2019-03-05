@@ -4,37 +4,24 @@
     padding: 0;
 }
 
-.initial-transition {
-    z-index: 1;
-    display: hidden;
-    width: 100vw;
-    height: 100vh;
-    background-color: #0386c7;
-    position: absolute;
-    -webkit-animation-name: transitions;
-    -webkit-animation-duration: 2s;
-    animation-name: transitions;
-    animation-duration: 2s;
-    animation-timing-function: cubic-bezier(0.5, 0.15, 0.15, 1);
+.overflow-hidden {
+    overflow: hidden;
 }
 
-@-webkit-keyframes transitions {
-    0%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
-    25%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
-    100% {width: 0vw; height: 100vh; left: 100vw; top: 0px;}
+.transition-title {
+    font-family: 'Fjalla One', sans-serif;
+    font-weight: bold;
+    font-size: 55px;
+    letter-spacing: 3px;
 }
 
-@keyframes transitions {
-    0%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
-    25%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
-    100% {width: 0vw; height: 100vh; left: 100vw; top: 0px;}
-}
-
-/*.submit-transition {
+.transition {
+    text-align: center;
+    padding: 275px 5px 0;
     z-index: 1;
     width: 100vw;
     height: 100vh;
-    background-color: #0386c7;
+    background-color: #fc5e03;
     position: absolute;
     -webkit-animation-name: transitions;
     -webkit-animation-duration: 2s;
@@ -43,18 +30,18 @@
 }
 
 @-webkit-keyframes transitions {
-    0%   {width: 0vw; height: 100vh; left: 0px; top: 0px;}
-    50%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
-    100% {width: 0vw; height: 100vh; left: 100vw; top: 0px;}
+    0%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
+    60%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
+    100% {width: 100vw; height: 100vh; left: 100vw; top: 0px;}
 }
 
 @keyframes transitions {
-    0%   {width: 0vw; height: 100vh; left: 0px; top: 0px;}
-    50%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
-    100% {width: 0vw; height: 100vh; left: 100vw; top: 0px;}
-}*/
+    0%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
+    60%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
+    100% {width: 100vw; height: 100vh; left: 100vw; top: 0px;}
+}
 
-#nav {
+.large-header {
     background: rgba(0,0,0,0.4);
     height: 120px;
     width: 100%;
@@ -64,21 +51,40 @@
     right: 0;
 }
 
-#title {
+.small-header {
+    background: rgba(0,0,0,0.4);
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+header a:link, header a:visited {
+    text-decoration: none;
     color: antiquewhite;
 }
 
-#recipes {
+header a:hover {
+    text-decoration: underline;
+}
+
+#recipes, #videos {
     padding-bottom: 40px;
-    padding-left: 3%;
+    font-size: 25px;
+}
+
+#recipes {    
+    padding-left: 4%;
 }
 
 #videos {
-    padding-bottom: 40px;
-    padding-right: 3%;
+    padding-right: 4%;
 }
 
-h1 {
+header h1 {
+    color: antiquewhite;
     font-family: 'Fjalla One', sans-serif;
     font-weight: bold;
     font-size: 35px;
@@ -100,23 +106,34 @@ main {
 }
 
 input {
-    background: rgba(255,255,255,0.3);
+    background: antiquewhite;
     padding-right: 50px;
-    width: 260px;
-    height: 30px;
-    border: 1px solid black;
+    padding-left: 8px;
+    width: 250px;
+    height: 35px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px solid #fc5e03;
+    border-radius: 5px;
+    font-size: 18px;
+    vertical-align: middle;
 }
 
 button {
-    margin-left: -50px;
-    height: 30px;
+    margin-left: -53px;
+    height: 35px;
     width: 50px;
-    border: 1px solid black;
-    background: #03c744 linear-gradient(to right, #0386c7, #0386c7);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px solid #fc5e03;
+    background: antiquewhite linear-gradient(to right, #fc5e03, #fc5e03);
     background-repeat: no-repeat;
     background-size: 0 100%;
     transition: background-size 0.4s 0s;
-    color: black;
+    border-radius: 0 5px 5px 0;
+    vertical-align: middle;
 }
 
 button:hover {
@@ -124,10 +141,16 @@ button:hover {
     cursor: pointer;
 }
 
+.search-icon {
+    padding: 0 5px 0;
+    width: 40px;
+    height: 25px;
+    border-radius: 0 5px 5px 0;
+}
+
 .description {
     text-align: center;
-    padding: 330px 10px 10px;
-    padding-bottom: 10px;
+    padding: 330px 10px 15px;
     color: antiquewhite;
     font-size: 18px;
 }
@@ -159,16 +182,52 @@ button:hover {
     align-items: center;
 }
 
-.search-nav-scroll {
+.search-nav-scroll-up {
     top: 0;
     left: 50%;
     position: fixed;
     transform: translate(-50%, 0);
     width: 260px;
+    -webkit-animation-name: scroll-up;
+    -webkit-animation-duration: 0.55s;
+    animation-name: scroll-up;
+    animation-duration: 0.55s;
+}
+
+@-webkit-keyframes scroll-up {
+    0%   {left: 50%; top: 80px;}
+    100% {left: 50%; top: 0px;}
+}
+
+@keyframes scroll-up {
+    0%   {left: 50%; top: 80px;}
+    100% {left: 50%; top: 0px;}
+}
+
+.search-nav-scroll-down {
+    top: 80px;
+    left: 50%;
+    position: fixed;
+    transform: translate(-50%, 0);
+    width: 260px;
+    -webkit-animation-name: scroll-down;
+    -webkit-animation-duration: 0.55s;
+    animation-name: scroll-down;
+    animation-duration: 0.55s;
+}
+
+@-webkit-keyframes scroll-down {
+    0%   {left: 50%; top: 0px;}
+    100% {left: 50%; top: 80px;}
+}
+
+@keyframes scroll-down {
+    0%   {left: 50%; top: 0px;}
+    100% {left: 50%; top: 80px;}
 }
 
 .search-nav {
-    top: 120px;
+    top: 80px;
     left: 50%;
     position: fixed;
     transform: translate(-50%, 0);
@@ -212,6 +271,11 @@ ul {
 }
 
 @media screen and (min-width: 1000px) {
+    .transition-title {
+        font-size: 100px;
+        letter-spacing: 3px;
+    }
+
     h1 {
         font-size: 70px;
         padding-top: 20px;
