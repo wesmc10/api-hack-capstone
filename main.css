@@ -116,7 +116,7 @@ header h1 {
 }
 
 .results-page-background {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('https://images.unsplash.com/photo-1549859454-6271f0764d7b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -135,10 +135,7 @@ input {
     padding-left: 8px;
     width: 250px;
     height: 35px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 3px solid #fc5e03;
+    border: none;
     border-radius: 5px;
     font-size: 18px;
     vertical-align: middle;
@@ -148,10 +145,7 @@ button {
     margin-left: -53px;
     height: 35px;
     width: 50px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 3px solid #fc5e03;
+    border: none;
     background: antiquewhite linear-gradient(to left, #fc5e03, #fc5e03);
     background-repeat: no-repeat;
     background-size: 0 100%;
@@ -160,7 +154,7 @@ button {
     vertical-align: middle;
 }
 
-button:hover, button:focus {
+button:hover {
     background-size: 100% 100%;
     cursor: pointer;
 }
