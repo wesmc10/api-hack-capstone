@@ -256,6 +256,7 @@ function watchForm() {
 
     $('body').addClass('overflow-hidden');
     setTimeout(function(){ $('.transition').addClass('hidden'); }, 2000);
+    $('main').addClass('landing-page-background');
 
     $('.js-search-form').submit(event => {
         event.preventDefault();
@@ -266,7 +267,8 @@ function watchForm() {
         navBarUpOnScrollDown()
         scrollToRecipes();
         scrollToVideos();
-        $('body').removeClass('overflow-hidden');
+        $('body').removeClass('overflow-hidden').addClass('results-page-background');
+        $('main').removeClass('landing-page-background');
         $('#title').addClass('hidden');
         $('#recipes').removeClass('hidden');
         $('#videos').removeClass('hidden');
