@@ -71,7 +71,7 @@ function getTextRecipes(userInput) {
     .catch(error => {
         $('#js-error-message').text(`Something went wrong: ${error.message}`);
         $('#text-individual-results').empty();
-        $('#text-individual-results').append(`Something went wrong: ${error.message}`);
+        $('#text-individual-results').addClass('error-message').append(`Something went wrong: ${error.message}`);
     });
 }
 
@@ -149,7 +149,7 @@ function getRecipeVideos(userInput) {
     .catch(error => {
         $('#js-error-message').text(`Something went wrong: ${error.message}`);
         $('#vid-individual-results').empty();
-        $('#vid-individual-results').append(`Something went wrong: ${error.message}`);
+        $('#vid-individual-results').addClass('error-message').append(`Something went wrong: ${error.message}`);
     });
 }
 
@@ -223,7 +223,7 @@ function getNutritionInfo(userInput) {
     .catch(error => {
         $('#js-error-message').text(`Something went wrong: ${error.message}`);
         $('#nut-individual-results').empty();
-        $('#nut-individual-results').append(`Something went wrong: ${error.message}`);
+        $('#nut-individual-results').addClass('error-message').append(`Something went wrong: ${error.message}`);
     })
 }
 
@@ -281,7 +281,7 @@ function watchForm() {
         event.preventDefault();
         let userInput = $('#food-type').val();
         getTextRecipes(userInput);
-        getRecipeVideos(userInput);
+        //getRecipeVideos(userInput);
         getNutritionInfo(userInput);
         navBarUpOnScrollDown()
         scrollToRecipes();

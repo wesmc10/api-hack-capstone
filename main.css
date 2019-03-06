@@ -304,6 +304,12 @@ li {
     display: inline-block;
 }
 
+#text-individual-results img, #vid-individual-results img {
+    border-radius: 5px;
+    border: 6px double black;
+    box-shadow: 5px 10px 12px black;
+}
+
 #edamam-badge {
     margin-top: 20px;
 }
@@ -342,6 +348,10 @@ li {
 }
 
 @media screen and (min-width: 400px) {
+    .transition-title {
+        font-size: 70px;
+    }
+
     #title {
         font-size: 47px;
         padding-top: 40px;
@@ -353,6 +363,9 @@ li {
 
     .description {
         font-size: 20px;
+        max-width: 550px;
+        margin-right: auto;
+        margin-left: auto;
     }
 
     input {
@@ -367,18 +380,41 @@ li {
         height: 40px;
     }
 
-    .search-nav {
+    .search-nav, .search-nav-scroll-up, .search-nav-scroll-down {
         width: 350px;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .transition-title {
+        font-size: 85px;
+    }
+
+    #title {
+        font-size: 57px;
+        padding-top: 32px;
+    }
+
+    .description {
+        font-size: 24px;
+        max-width: 620px;
+    }
+
+    input {
+        width: 375px;
+    }
+
+    .search-nav, .search-nav-scroll-up, .search-nav-scroll-down {
+        width: 400px;
     }
 }
 
 @media screen and (min-width: 1000px) {
     .transition-title {
         font-size: 100px;
-        letter-spacing: 3px;
     }
 
-    h1 {
+    #title {
         font-size: 70px;
         padding-top: 20px;
         letter-spacing: 4px;
@@ -386,18 +422,14 @@ li {
 
     input {
         width: 450px;
-        height: 40px;
-        padding-right: 50px;
-    }
-    
-    button {
-        margin-left: -50px;
-        height: 40px;
-        width: 50px;
     }
 
     .description {
-        font-size: 25px;
-        padding-bottom: 15px;
+        font-size: 26px;
+        max-width: 700px;
+    }
+
+    .search-nav, .search-nav-scroll-up, .search-nav-scroll-down {
+        width: 475px;
     }
 }
