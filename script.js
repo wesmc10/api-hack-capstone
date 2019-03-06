@@ -11,10 +11,16 @@ function displayTextRecipeResults(responseJson) {
     }
 
     for (let i = 0; i < responseJson.hits.length; i++) {
+
+        let label = responseJson.hits[i].recipe.label;
+        if (label.length > 55) {
+            label = label.substring(0, 55).trim() + '...';
+        }
+
         $('#text-individual-results').append(
             `<li>
-                <h3><a href="${responseJson.hits[i].recipe.url}" target="_blank">${responseJson.hits[i].recipe.label}</a></h3>
-                <p>By ${responseJson.hits[i].recipe.source}</p>
+                <h3><a href="${responseJson.hits[i].recipe.url}" target="_blank">${label}</a></h3>
+                <p class="creator">By ${responseJson.hits[i].recipe.source}</p>
                 <a href="${responseJson.hits[i].recipe.url}" target="_blank">
                     <img src="${responseJson.hits[i].recipe.image}" class="text-recipe-images" alt="${responseJson.hits[i].recipe.label} image">
                 </a>
@@ -41,7 +47,7 @@ function getTextRecipes(userInput) {
         app_id: textAppId,
         app_key: textApiKey,
         from: 0,
-        to: 8,
+        to: 10,
     };
     const textQueryString = formatTextRecipeParams(textParams);
     const textUrl = textSearchUrl + '?' + textQueryString;
@@ -64,6 +70,8 @@ function getTextRecipes(userInput) {
     .then(responseJson => displayTextRecipeResults(responseJson))
     .catch(error => {
         $('#js-error-message').text(`Something went wrong: ${error.message}`);
+        $('#text-individual-results').empty();
+        $('#text-individual-results').append(`Something went wrong: ${error.message}`);
     });
 }
 
@@ -73,7 +81,7 @@ function getTextRecipes(userInput) {
 //recipe videos below
 
 
-function displayRecipeVideoResults(responseJson) {
+function displayRecipeVideoResults(responseJson, userInput) {
     console.log(responseJson);
 
     $('#vid-individual-results').empty();
@@ -83,16 +91,25 @@ function displayRecipeVideoResults(responseJson) {
     }
 
     for (let i = 0; i < responseJson.items.length; i++) {
+
+        let title = responseJson.items[i].snippet.title;
+        if (title.length > 55) {
+            title = title.substring(0, 55).trim() + '...';
+        }
+
         $('#vid-individual-results').append(
             `<li>
-                <h3><a href="https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}" target="_blank">${responseJson.items[i].snippet.title}</a></h3>
-                <p>By <a href="https://www.youtube.com/channel/${responseJson.items[i].snippet.channelId}" target="_blank">${responseJson.items[i].snippet.channelTitle}<a/></p>
+                <h3><a href="https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}" target="_blank">${title}</a></h3>
+                <p class="creator">By <a href="https://www.youtube.com/channel/${responseJson.items[i].snippet.channelId}" target="_blank">${responseJson.items[i].snippet.channelTitle}<a/></p>
                 <a href="https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}" target="_blank">
                     <img src="${responseJson.items[i].snippet.thumbnails.default.url}" alt="${responseJson.items[i].snippet.title} video image">
                 </a>
             </li>`
         );
     }
+
+    $('#vid-individual-results').append(`<h3 class="youtube-more-results"><a href="https://www.youtube.com/results?search_query=${userInput}+recipes" target="_blank">More results on YouTube
+    <img src="http://www.logospng.com/images/66/work-well-solutions-informatiques-en-action-66386.png" class="youtube" alt="YouTube Attribution image"> <img src="https://image.flaticon.com/icons/svg/66/66831.svg" class="more-results" alt="arrow image icon"></a></h3>`);
 }
 
 
@@ -128,9 +145,11 @@ function getRecipeVideos(userInput) {
         }
         throw new Error(response.statusText);
     })
-    .then(responseJson => displayRecipeVideoResults(responseJson))
+    .then(responseJson => displayRecipeVideoResults(responseJson, userInput))
     .catch(error => {
         $('#js-error-message').text(`Something went wrong: ${error.message}`);
+        $('#vid-individual-results').empty();
+        $('#vid-individual-results').append(`Something went wrong: ${error.message}`);
     });
 }
 
@@ -161,7 +180,7 @@ function displayNutritionInfoResults(responseJson) {
         `<li>
             <h3>${capitalizeFirstLetter(responseJson.foods[0].food_name)}</h3>
             <p>Serving Size: ${responseJson.foods[0].serving_qty} ${responseJson.foods[0].serving_unit} (${Math.round(responseJson.foods[0].serving_weight_grams)}g)</p>
-            <p><h4>Amount Per Serving</h4></p>
+            <h4>Amount Per Serving</h4>
             <p>Calories: ${Math.round(responseJson.foods[0].nf_calories)}</p>
             <p>Total Fat: ${Math.round(responseJson.foods[0].nf_total_fat)}g</p>
             <p>Saturated Fat: ${Math.round(responseJson.foods[0].nf_saturated_fat)}g</p>
@@ -204,7 +223,7 @@ function getNutritionInfo(userInput) {
     .catch(error => {
         $('#js-error-message').text(`Something went wrong: ${error.message}`);
         $('#nut-individual-results').empty();
-        $('#nut-individual-results').append('Sorry, I could not find any nutrition information for that food item. Please try modifying your search.');
+        $('#nut-individual-results').append(`Something went wrong: ${error.message}`);
     })
 }
 
@@ -261,9 +280,9 @@ function watchForm() {
     $('.js-search-form').submit(event => {
         event.preventDefault();
         let userInput = $('#food-type').val();
-        //getTextRecipes(userInput);
+        getTextRecipes(userInput);
         getRecipeVideos(userInput);
-        //getNutritionInfo(userInput);
+        getNutritionInfo(userInput);
         navBarUpOnScrollDown()
         scrollToRecipes();
         scrollToVideos();

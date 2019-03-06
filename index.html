@@ -4,18 +4,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Homemade Chef App</title>
         <link rel="stylesheet" href="main.css" type="text/css">
-        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.css">
+        <link rel="stylesheet" type="text/css" href="//https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
         <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans|Ubuntu" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
+        <script src="https://developer.edamam.com/attribution/badge.js"></script>
     </head>
 
     <body>
         <header id="nav" class="large-header">
             <h1 id="title">HOMEMADE CHEF</h1>
-            <h1 id="recipes" class="hidden"><a href="#recipes-container">Recipes</a></h1>
-            <h1 id="videos" class="hidden"><a href="#videos-container">Videos</a></h1>
+            <h1 id="recipes" class="hidden"><a href="#recipes-container">RECIPES</a></h1>
+            <h1 id="videos" class="hidden"><a href="#videos-container">VIDEOS</a></h1>
         </header>
 
         <main role="main">
@@ -32,12 +33,14 @@
                     <h2 class="nutrition-header">NUTRITION FACTS</h2>
                     <ul id="nut-individual-results">
                     </ul>
+                    <img src="NutritionixAPI_hires_flat.png" class="nut-attribution" alt="Nutritionix API attribution">
                 </div>
 
                 <div class="container" id="recipes-container">
                     <h2 class="recipes-header">RECIPES</h2>
                     <ul id="text-individual-results">
                     </ul>
+                    <div id="edamam-badge"></div>
                 </div>
 
                 <div class="container" id="videos-container">
