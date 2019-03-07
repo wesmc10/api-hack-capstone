@@ -96,12 +96,14 @@ header a:hover, header a:focus {
     padding-right: 4%;
 }
 
-/*#title {
-    left: 50%;
+#title {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    /*left: 50%;
     position: fixed;
     transform: translate(-50%, 0);
-    min-width: 300px;
-}*/
+    min-width: 300px;*/
+}
 
 header h1 {
     color: antiquewhite;
