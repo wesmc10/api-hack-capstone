@@ -371,6 +371,7 @@ function watchForm() {
     $('body').addClass('overflow-hidden');
     setTimeout(function(){ $('.transition').addClass('hidden'); }, 2000);
     $('main').addClass('landing-page-background');
+    $('.landing-container').addClass('flex-container');
 
     $('.js-search-form').submit(event => {
         event.preventDefault();
@@ -393,7 +394,7 @@ function watchForm() {
         $('.description').addClass('hidden');
         $('.js-search-form').addClass('search-nav');
         $('.container').addClass('flexbox-column');
-        $('.flex-container').addClass('hidden');
+        $('.landing-container').removeClass('flex-container');
         $('#food-type').val('');
     });
 }
