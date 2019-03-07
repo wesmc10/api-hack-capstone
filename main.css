@@ -57,7 +57,7 @@ body {
 
 .small-header {
     background: rgba(0,0,0,0.8);
-    height: 80px;
+    height: 105px;
     width: 100%;
     position: fixed;
     top: 0;
@@ -170,6 +170,7 @@ button:hover {
     font-family: 'Ubuntu', sans-serif;
     font-size: 24px;
     margin-top: 20px;
+    text-align: center;
 }
 
 .youtube-more-results a:hover, .youtube-more-results a:focus {
@@ -227,8 +228,15 @@ button:hover {
     align-items: center;
 }
 
+.flex-row-big-screen {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
 .search-nav-scroll-up {
-    top: 0;
+    top: 5px;
     left: 50%;
     position: fixed;
     transform: translate(-50%, 0);
@@ -240,17 +248,17 @@ button:hover {
 }
 
 @-webkit-keyframes scroll-up {
-    0%   {left: 50%; top: 80px;}
-    100% {left: 50%; top: 0px;}
+    0%   {top: 105px;}
+    100% {top: 5px;}
 }
 
 @keyframes scroll-up {
-    0%   {left: 50%; top: 80px;}
-    100% {left: 50%; top: 0px;}
+    0%   {top: 105px;}
+    100% {top: 5px;}
 }
 
 .search-nav-scroll-down {
-    top: 80px;
+    top: 105px;
     left: 50%;
     position: fixed;
     transform: translate(-50%, 0);
@@ -262,17 +270,17 @@ button:hover {
 }
 
 @-webkit-keyframes scroll-down {
-    0%   {left: 50%; top: 0px;}
-    100% {left: 50%; top: 80px;}
+    0%   {top: 0px;}
+    100% {top: 105px;}
 }
 
 @keyframes scroll-down {
-    0%   {left: 50%; top: 0px;}
-    100% {left: 50%; top: 80px;}
+    0%   {top: 0px;}
+    100% {top: 105px;}
 }
 
 .search-nav {
-    top: 80px;
+    top: 105px;
     left: 50%;
     position: fixed;
     transform: translate(-50%, 0);
@@ -288,7 +296,7 @@ h2 {
 }
 
 #search-results {
-    padding-top: 120px;
+    padding-top: 145px;
 }
 
 ul {
@@ -297,17 +305,19 @@ ul {
 }
 
 li {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 #text-individual-results, #vid-individual-results {
     display: inline-block;
 }
 
-#text-individual-results img, #vid-individual-results img {
+.recipe-video-images, .text-recipe-images {
     border-radius: 5px;
     border: 6px double black;
     box-shadow: 5px 10px 12px black;
+    width: 185px;
+    height: 135px;
 }
 
 #edamam-badge {
@@ -321,11 +331,6 @@ li {
 .youtube {
     width: 40px;
     margin-bottom: -8px;
-}
-
-.text-recipe-images {
-    width: 120px;
-    height: 90px;
 }
 
 .container {
@@ -349,7 +354,7 @@ li {
 
 @media screen and (min-width: 400px) {
     .transition-title {
-        font-size: 70px;
+        font-size: 75px;
     }
 
     #title {
@@ -383,11 +388,42 @@ li {
     .search-nav, .search-nav-scroll-up, .search-nav-scroll-down {
         width: 350px;
     }
+
+    .recipe-video-images, .text-recipe-images {
+        width: 260px;
+        height: 190px;
+    }
+
+    #search-results {
+        padding-top: 150px;
+    }
+
+    #recipes, #videos {
+        padding-bottom: 35px;
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+    
+    #nut-individual-results p, #text-individual-results {
+        font-size: 19px;
+    }
+
+    h3 {
+        font-size: 22px;
+        max-width: 400px;
+    }
+
+    h4 {
+        font-size: 20px;
+    }
 }
 
 @media screen and (min-width: 700px) {
     .transition-title {
-        font-size: 85px;
+        font-size: 90px;
     }
 
     #title {
@@ -407,11 +443,48 @@ li {
     .search-nav, .search-nav-scroll-up, .search-nav-scroll-down {
         width: 400px;
     }
+
+    .container {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .recipe-video-images, .text-recipe-images {
+        width: 360px;
+        height: 262px;
+    }
+
+    #recipes, #videos {
+        padding-bottom: 32px;
+        font-size: 38px;
+    }
+
+    h2 {
+        font-size: 33px;
+    }
+    
+    #nut-individual-results p, #text-individual-results {
+        font-size: 21px;
+    }
+
+    h3 {
+        font-size: 24px;
+        max-width: 400px;
+    }
+
+    h4 {
+        font-size: 22px;
+    }
+
+    .youtube-more-results {
+        font-size: 28px;
+        max-width: 450px;
+    }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1100px) {
     .transition-title {
-        font-size: 100px;
+        font-size: 110px;
     }
 
     #title {
@@ -431,5 +504,82 @@ li {
 
     .search-nav, .search-nav-scroll-up, .search-nav-scroll-down {
         width: 475px;
+    }
+
+    #nutrition-container {
+        margin-left: 4%;
+        margin-right: 1%;
+        position: fixed;
+        top: 150;
+        left: 0;
+    }
+
+    #recipes-container {
+        margin-left: 34%;
+        margin-right: 0;
+    }
+
+    #videos-container {
+        margin-left: 0;
+        margin-right: 4%;
+    }
+
+    .container {
+        width: 30%;
+    }
+
+    .recipe-video-images, .text-recipe-images {
+        width: 300px;
+        height: 218px;
+    }
+
+    .youtube-more-results {
+        max-width: 420px;
+    }
+
+    .nutrition-scroll-up {
+        top: 5px;
+        left: 0;
+        margin-left: 4%;
+        margin-right: 0;
+        position: fixed;
+        width: 30%;
+        -webkit-animation-name: nut-scroll-up;
+        -webkit-animation-duration: 0.55s;
+        animation-name: nut-scroll-up;
+        animation-duration: 0.55s;
+    }
+    
+    @-webkit-keyframes nut-scroll-up {
+        0%   {top: 105px;}
+        100% {top: 5px;}
+    }
+    
+    @keyframes nut-scroll-up {
+        0%   {top: 105px;}
+        100% {top: 5px;}
+    }
+
+    .nutrition-scroll-down {
+        top: 150px;
+        left: 0;
+        margin-left: 4%;
+        margin-right: 0;
+        position: fixed;
+        width: 30%;
+        -webkit-animation-name: nut-scroll-down;
+        -webkit-animation-duration: 0.55s;
+        animation-name: nut-scroll-down;
+        animation-duration: 0.55s;
+    }
+    
+    @-webkit-keyframes nut-scroll-down {
+        0%   {top: 0px;}
+        100% {top: 150px;}
+    }
+    
+    @keyframes nut-scroll-down {
+        0%   {top: 0px;}
+        100% {top: 150px;}
     }
 }

@@ -102,7 +102,7 @@ function displayRecipeVideoResults(responseJson, userInput) {
                 <h3><a href="https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}" target="_blank">${title}</a></h3>
                 <p class="creator">By <a href="https://www.youtube.com/channel/${responseJson.items[i].snippet.channelId}" target="_blank">${responseJson.items[i].snippet.channelTitle}<a/></p>
                 <a href="https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}" target="_blank">
-                    <img src="${responseJson.items[i].snippet.thumbnails.default.url}" alt="${responseJson.items[i].snippet.title} video image">
+                    <img src="${responseJson.items[i].snippet.thumbnails.default.url}" class="recipe-video-images" alt="${responseJson.items[i].snippet.title} video image">
                 </a>
             </li>`
         );
@@ -233,6 +233,23 @@ function getNutritionInfo(userInput) {
 //scroll features below
 
 
+function nutInfoScroll() {
+    let previousPosition = window.pageYOffset;
+
+    $(window).on('scroll', function(event) {
+        let currentPosition = window.pageYOffset;
+        if ($(window).width() >= 1100 && currentPosition > previousPosition) {
+            $('#nutrition-container').removeClass('nutrition-scroll-down').addClass('nutrition-scroll-up');
+        }
+        else if ($(window).width() >= 1100 && currentPosition < previousPosition) {
+            $('#nutrition-container').removeClass('nutrition-scroll-up').addClass('nutrition-scroll-down');
+        }
+        previousPosition = currentPosition;
+    });
+}
+
+
+
 function navBarUpOnScrollDown() {
     let previousPosition = window.pageYOffset;
 
@@ -250,10 +267,12 @@ function navBarUpOnScrollDown() {
     });
 }
 
+
+
 function scrollToRecipes() {
     $('#nav').on('click', '#recipes', function(event) {
         event.preventDefault();
-        $('html, body').animate({scrollTop: $('#recipes-container').offset().top - 35}, 'slow');
+        $('html, body').animate({scrollTop: $('#recipes-container').offset().top - 42}, 'slow');
     });
 }
 
@@ -262,8 +281,34 @@ function scrollToRecipes() {
 function scrollToVideos() {
     $('#nav').on('click', '#videos', function(event) {
         event.preventDefault();
-        $('html, body').animate({scrollTop: $('#videos-container').offset().top - 35}, 'slow');
+        $('html, body').animate({scrollTop: $('#videos-container').offset().top - 42}, 'slow');
     });
+}
+
+
+//scroll features above
+/*==============================================================================================================*/
+//window resize features below
+
+
+function windowResize() {
+    $(window).resize(function() {
+        if ($(window).width() >= 1100) {
+            $('#search-results').addClass('flex-row-big-screen');
+        } else {
+            $('#search-results').removeClass('flex-row-big-screen');
+        }
+    });
+}
+
+
+
+function windowSize() {
+    if ($(window).width() >= 1100) {
+        $('#search-results').addClass('flex-row-big-screen');
+    } else {
+        $('#search-results').removeClass('flex-row-big-screen');
+    }
 }
 
 
@@ -280,12 +325,15 @@ function watchForm() {
     $('.js-search-form').submit(event => {
         event.preventDefault();
         let userInput = $('#food-type').val();
-        getTextRecipes(userInput);
-        //getRecipeVideos(userInput);
+        //getTextRecipes(userInput);
+        getRecipeVideos(userInput);
         getNutritionInfo(userInput);
         navBarUpOnScrollDown()
         scrollToRecipes();
         scrollToVideos();
+        windowResize();
+        windowSize();
+        nutInfoScroll();
         $('body').removeClass('overflow-hidden').addClass('results-page-background');
         $('main').removeClass('landing-page-background');
         $('#title').addClass('hidden');
