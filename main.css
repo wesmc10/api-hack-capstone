@@ -121,6 +121,7 @@ header h1 {
     -o-background-size: cover;
     background-size: cover;
     background-attachment: fixed;
+    min-height: 100%;
 }
 
 .results-page-background {
@@ -131,6 +132,7 @@ header h1 {
     -o-background-size: cover;
     background-size: cover;
     background-attachment: fixed;
+    min-height: 100%;
 }
 
 main {
