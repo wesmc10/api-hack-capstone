@@ -96,14 +96,12 @@ header a:hover, header a:focus {
     padding-right: 4%;
 }
 
-#title {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    /*left: 50%;
+/*#title {
+    left: 50%;
     position: fixed;
     transform: translate(-50%, 0);
-    min-width: 300px;*/
-}
+    min-width: 300px;
+}*/
 
 header h1 {
     color: antiquewhite;
@@ -471,7 +469,7 @@ li {
 
     #recipes, #videos {
         padding-bottom: 32px;
-        font-size: 38px;
+        font-size: 40px;
     }
 
     h2 {
@@ -506,6 +504,11 @@ li {
         font-size: 70px;
         padding-top: 20px;
         letter-spacing: 4px;
+    }
+
+    #results-title {
+        padding-top: 20px;
+        font-size: 55px;
     }
 
     input {

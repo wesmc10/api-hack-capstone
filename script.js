@@ -269,6 +269,15 @@ function navBarUpOnScrollDown() {
 
 
 
+function scrollToTop() {
+    $('#nav').on('click', '#results-title', function(event) {
+        event.preventDefault();
+        $('html, body').animate({scrollTop: 0}, 'slow');
+    });
+}
+
+
+
 function scrollToRecipes() {
     $('#nav').on('click', '#recipes', function(event) {
         event.preventDefault();
@@ -312,7 +321,48 @@ function windowSize() {
 }
 
 
+//window resize features above
 /*==============================================================================================================*/
+//switching header features below
+
+
+function switchHeader() {
+    if ($(window).width() < 1083) {
+        $('#nav').removeClass('large-header').addClass('flexbox-row small-header');
+        $('#title').addClass('hidden');
+        $('#recipes').removeClass('hidden');
+        $('#videos').removeClass('hidden');
+    } else {
+        $('#nav').removeClass('large-header').addClass('small-header');
+        $('#title').addClass('hidden');
+        $('#results-title').removeClass('hidden');
+    }
+}
+
+
+
+function switchHeaderResize() {
+    $(window).resize(function() {
+        if ($(window).width() < 1083) {
+            $('#nav').removeClass('large-header').addClass('flexbox-row small-header');
+            $('#title').addClass('hidden');
+            $('#recipes').removeClass('hidden');
+            $('#videos').removeClass('hidden');
+            $('#results-title').addClass('hidden');
+        } else {
+            $('#nav').removeClass('large-header flexbox-row').addClass('small-header');
+            $('#title').addClass('hidden');
+            $('#results-title').removeClass('hidden');
+            $('#recipes').addClass('hidden');
+            $('#videos').addClass('hidden');
+        }
+    });
+}
+
+
+//switching header features above
+/*==============================================================================================================*/
+//on load below
 
 
 function watchForm() {
@@ -329,17 +379,16 @@ function watchForm() {
         getRecipeVideos(userInput);
         getNutritionInfo(userInput);
         navBarUpOnScrollDown()
+        scrollToTop();
         scrollToRecipes();
         scrollToVideos();
         windowResize();
         windowSize();
         nutInfoScroll();
+        switchHeader();
+        switchHeaderResize();
         $('body').removeClass('overflow-hidden').addClass('results-page-background');
         $('main').removeClass('landing-page-background');
-        $('#title').addClass('hidden');
-        $('#recipes').removeClass('hidden');
-        $('#videos').removeClass('hidden');
-        $('#nav').removeClass('large-header').addClass('flexbox-row small-header');
         $('#search-results').removeClass('hidden');
         $('.description').addClass('hidden');
         $('.js-search-form').addClass('search-nav');
