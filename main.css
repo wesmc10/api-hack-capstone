@@ -12,11 +12,6 @@ body {
     overflow: hidden;
 }
 
-#nav {
-    -webkit-transform: translateZ(0) scale(1.0, 1.0);
-    transform: translateZ(0);
-}
-
 .transition-title {
     font-family: 'Fjalla One', sans-serif;
     font-weight: bold;
@@ -27,6 +22,7 @@ body {
 
 .transition {
     /*padding: 275px 5px 0;*/
+    -webkit-backface-visibility: hidden;
     -webkit-transform: translateZ(0) scale(1.0, 1.0);
     transform: translateZ(0);
     display: flex;
@@ -53,11 +49,6 @@ body {
     0%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
     60%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
     100% {width: 100vw; height: 100vh; left: 100vw; top: 0px;}
-}
-
-#title {
-    -webkit-transform: translateZ(0) scale(1.0, 1.0);
-    transform: translateZ(0);
 }
 
 .large-header {
