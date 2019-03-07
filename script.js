@@ -238,10 +238,10 @@ function nutInfoScroll() {
 
     $(window).on('scroll', function(event) {
         let currentPosition = window.pageYOffset;
-        if ($(window).width() >= 1100 && currentPosition > previousPosition) {
+        if ($(window).width() >= 1083 && currentPosition > previousPosition) {
             $('#nutrition-container').removeClass('nutrition-scroll-down').addClass('nutrition-scroll-up');
         }
-        else if ($(window).width() >= 1100 && currentPosition < previousPosition) {
+        else if ($(window).width() >= 1083 && currentPosition < previousPosition) {
             $('#nutrition-container').removeClass('nutrition-scroll-up').addClass('nutrition-scroll-down');
         }
         previousPosition = currentPosition;
@@ -293,7 +293,7 @@ function scrollToVideos() {
 
 function windowResize() {
     $(window).resize(function() {
-        if ($(window).width() >= 1100) {
+        if ($(window).width() >= 1083) {
             $('#search-results').addClass('flex-row-big-screen');
         } else {
             $('#search-results').removeClass('flex-row-big-screen');
@@ -304,7 +304,7 @@ function windowResize() {
 
 
 function windowSize() {
-    if ($(window).width() >= 1100) {
+    if ($(window).width() >= 1083) {
         $('#search-results').addClass('flex-row-big-screen');
     } else {
         $('#search-results').removeClass('flex-row-big-screen');
@@ -325,7 +325,7 @@ function watchForm() {
     $('.js-search-form').submit(event => {
         event.preventDefault();
         let userInput = $('#food-type').val();
-        //getTextRecipes(userInput);
+        getTextRecipes(userInput);
         getRecipeVideos(userInput);
         getNutritionInfo(userInput);
         navBarUpOnScrollDown()
