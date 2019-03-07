@@ -30,6 +30,8 @@ body {
     height: 100vh;
     background-color: #fc5e03;
     position: absolute;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
     -webkit-animation-name: transitions;
     -webkit-animation-duration: 2s;
     animation-name: transitions;
