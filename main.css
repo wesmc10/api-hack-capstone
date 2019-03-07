@@ -23,7 +23,7 @@ body {
 .transition {
     /*padding: 275px 5px 0;*/
     -webkit-transform: translateZ(0) scale(1.0, 1.0);
-    transform: translateZ(0) scale(1.0, 1.0);
+    transform: translateZ(0);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,7 +52,7 @@ body {
 
 #title {
     -webkit-transform: translateZ(0) scale(1.0, 1.0);
-    transform: translateZ(0) scale(1.0, 1.0);
+    transform: translateZ(0);
 }
 
 .large-header {
