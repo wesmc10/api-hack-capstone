@@ -30,8 +30,6 @@ body {
     height: 100vh;
     background-color: #fc5e03;
     position: absolute;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
     -webkit-animation-name: transitions;
     -webkit-animation-duration: 2s;
     animation-name: transitions;
@@ -48,6 +46,11 @@ body {
     0%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
     60%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
     100% {width: 100vw; height: 100vh; left: 100vw; top: 0px;}
+}
+
+#title {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 .large-header {
