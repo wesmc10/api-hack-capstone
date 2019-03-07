@@ -128,7 +128,7 @@ function getRecipeVideos(userInput) {
         part: 'snippet',
         key: vidApiKey,
         q: userInput + 'recipes',
-        maxResults: 8,
+        maxResults: 9,
         safeSearch: 'strict',
         type: 'video',
         relevanceLanguage: 'en',
@@ -392,7 +392,8 @@ function watchForm() {
         $('#search-results').removeClass('hidden');
         $('.description').addClass('hidden');
         $('.js-search-form').addClass('search-nav');
-        $('.container').addClass('flexbox-column'); 
+        $('.container').addClass('flexbox-column');
+        $('.flex-container').addClass('hidden');
         $('#food-type').val('');
     });
 }
