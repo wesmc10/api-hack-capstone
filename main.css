@@ -111,13 +111,6 @@ header a:hover, header a:focus {
     padding-right: 4%;
 }
 
-/*#title {
-    left: 50%;
-    position: fixed;
-    transform: translate(-50%, 0);
-    min-width: 300px;
-}*/
-
 header h1 {
     color: antiquewhite;
     font-family: 'Fjalla One', sans-serif;
@@ -385,7 +378,6 @@ li {
     #title {
         font-size: 47px;
         padding-top: 40px;
-        /*min-width: 400px;*/
     }
 
     .large-header {
@@ -455,7 +447,6 @@ li {
     #title {
         font-size: 57px;
         padding-top: 32px;
-        /*min-width: 700px;*/
     }
 
     .description {
