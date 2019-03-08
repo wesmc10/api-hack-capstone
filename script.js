@@ -351,7 +351,23 @@ function switchHeaderResize() {
 
 //switching header features above
 /*==============================================================================================================*/
-//on load below
+//prepare page for displaying results below
+
+
+function prepareForDisplayingResults() {
+    $('body').removeClass('overflow-hidden').addClass('results-page-background');
+    $('main').removeClass('landing-page-background');
+    $('#search-results').removeClass('hidden');
+    $('.description').addClass('hidden');
+    $('.js-search-form').addClass('search-nav');
+    $('.container').addClass('flexbox-column');
+    $('.landing-container').removeClass('flex-container');
+    $('#food-type').val('');
+}
+
+//prepare page for displaying results above
+/*==============================================================================================================*/
+//on page load below
 
 
 function watchForm() {
@@ -375,15 +391,7 @@ function watchForm() {
         nutInfoScroll();
         switchHeader();
         switchHeaderResize();
-        
-        $('body').removeClass('overflow-hidden').addClass('results-page-background');
-        $('main').removeClass('landing-page-background');
-        $('#search-results').removeClass('hidden');
-        $('.description').addClass('hidden');
-        $('.js-search-form').addClass('search-nav');
-        $('.container').addClass('flexbox-column');
-        $('.landing-container').removeClass('flex-container');
-        $('#food-type').val('');
+        prepareForDisplayingResults();
     });
 }
 
