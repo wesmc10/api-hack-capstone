@@ -3,7 +3,7 @@
 <h2>Live Site:</h2>
 
 <ul>
-    <li><a href="https://wesmc10.github.io/api-hack-capstone/">Homemade Chef App</a></li>
+    <li><a href="https://wesmc10.github.io/homemade-chef/" target="_blank">Homemade Chef App</a></li>
 </ul>
 
 <h2>Screenshots</h2>
