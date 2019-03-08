@@ -388,6 +388,7 @@ function watchForm() {
         nutInfoScroll();
         switchHeader();
         switchHeaderResize();
+        
         $('body').removeClass('overflow-hidden').addClass('results-page-background');
         $('main').removeClass('landing-page-background');
         $('#search-results').removeClass('hidden');
