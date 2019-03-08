@@ -245,7 +245,7 @@ button:hover {
 }
 
 .search-nav-scroll-up {
-    top: 5px;
+    top: 0;
     left: 50%;
     position: fixed;
     transform: translate(-50%, 0);
@@ -258,12 +258,12 @@ button:hover {
 
 @-webkit-keyframes scroll-up {
     0%   {top: 105px;}
-    100% {top: 5px;}
+    100% {top: 0;}
 }
 
 @keyframes scroll-up {
     0%   {top: 105px;}
-    100% {top: 5px;}
+    100% {top: 0;}
 }
 
 .search-nav-scroll-down {
@@ -279,12 +279,12 @@ button:hover {
 }
 
 @-webkit-keyframes scroll-down {
-    0%   {top: 0px;}
+    0%   {top: 0;}
     100% {top: 105px;}
 }
 
 @keyframes scroll-down {
-    0%   {top: 0px;}
+    0%   {top: 0;}
     100% {top: 105px;}
 }
 
