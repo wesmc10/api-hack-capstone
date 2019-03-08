@@ -2,8 +2,6 @@
 
 
 function displayTextRecipeResults(responseJson) {
-    console.log(responseJson);
-
     $('#text-individual-results').empty();
 
     if (responseJson.hits.length === 0) {
@@ -51,9 +49,6 @@ function getTextRecipes(userInput) {
     };
     const textQueryString = formatTextRecipeParams(textParams);
     const textUrl = textSearchUrl + '?' + textQueryString;
-
-    console.log(textUrl);
-
     const options = {
         headers: new Headers({
             'Accept-Encoding': 'gzip'
@@ -82,8 +77,6 @@ function getTextRecipes(userInput) {
 
 
 function displayRecipeVideoResults(responseJson, userInput) {
-    console.log(responseJson);
-
     $('#vid-individual-results').empty();
 
     if (responseJson.items.length === 0) {
@@ -136,8 +129,6 @@ function getRecipeVideos(userInput) {
     const vidQueryString = formatVideoRecipeParams(vidParams);
     const vidUrl = vidSearchUrl + '?' + vidQueryString;
 
-    console.log(vidUrl);
-
     fetch(vidUrl)
     .then(response => {
         if (response.ok) {
@@ -172,8 +163,6 @@ function capitalizeFirstLetter(string) {
 
 
 function displayNutritionInfoResults(responseJson) {
-    console.log(responseJson);
-
     $('#nut-individual-results').empty();
 
     $('#nut-individual-results').append(
@@ -366,8 +355,6 @@ function switchHeaderResize() {
 
 
 function watchForm() {
-    console.log('App is ready!');
-
     $('body').addClass('overflow-hidden');
     setTimeout(function(){ $('.transition').addClass('hidden'); }, 2000);
     $('main').addClass('landing-page-background');
