@@ -1,7 +1,7 @@
 'use strict'
 
 
-function displayTextRecipeResults(responseJson) {
+function displayTextRecipeResults(responseJson, userInput) {
     $('#text-individual-results').empty();
 
     if (responseJson.hits.length === 0) {
@@ -24,7 +24,10 @@ function displayTextRecipeResults(responseJson) {
                 </a>
             </li>`
         );
-    }  
+    }
+
+    $('#text-individual-results').append(`<h3 class="edamam-more-results"><a href="https://www.edamam.com/recipes/${userInput}" 
+    target="_blank">More results on Edamam <img src="https://image.flaticon.com/icons/svg/66/66831.svg" class="more-results" alt="arrow image icon"></a></h3>`);
 }
 
 
@@ -62,7 +65,7 @@ function getTextRecipes(userInput) {
         }
         throw new Error(response.statusText);
     })
-    .then(responseJson => displayTextRecipeResults(responseJson))
+    .then(responseJson => displayTextRecipeResults(responseJson, userInput))
     .catch(error => {
         alert(`Something went wrong: ${error.message}`);
         $('#text-individual-results').empty();
@@ -100,8 +103,8 @@ function displayRecipeVideoResults(responseJson, userInput) {
         );
     }
 
-    $('#vid-individual-results').append(`<h3 class="youtube-more-results"><a href="https://www.youtube.com/results?search_query=${userInput}+recipes" target="_blank">More results on YouTube
-    <img src="http://www.logospng.com/images/66/work-well-solutions-informatiques-en-action-66386.png" class="youtube" alt="YouTube Attribution image"> <img src="https://image.flaticon.com/icons/svg/66/66831.svg" class="more-results" alt="arrow image icon"></a></h3>`);
+    $('#vid-individual-results').append(`<h3 class="youtube-more-results"><a href="https://www.youtube.com/results?search_query=${userInput}+recipes" 
+    target="_blank">More results on YouTube <img src="https://image.flaticon.com/icons/svg/66/66831.svg" class="more-results" alt="arrow image icon"></a></h3>`);
 }
 
 

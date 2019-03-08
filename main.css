@@ -107,6 +107,10 @@ header a:hover, header a:focus {
     padding-right: 4%;
 }
 
+#videos-container {
+    padding-bottom: 15px;
+}
+
 header h1 {
     color: antiquewhite;
     font-family: 'Fjalla One', sans-serif;
@@ -181,14 +185,14 @@ button:hover {
     height: 18px;;
 }
 
-.youtube-more-results {
+.youtube-more-results, .edamam-more-results {
     font-family: 'Ubuntu', sans-serif;
     font-size: 24px;
-    margin-top: 20px;
-    text-align: center;
+    margin-top: 40px;
+    text-align: left;
 }
 
-.youtube-more-results a:hover, .youtube-more-results a:focus {
+.youtube-more-results a:hover, .edamam-more-results a:hover, .youtube-more-results a:focus, .edamam-more-results a:focus {
     text-decoration: none;
 }
 
@@ -337,6 +341,10 @@ li {
     width: 200px;
 }
 
+.vid-attribution {
+    width: 150px;
+}
+
 .youtube {
     width: 40px;
     margin-bottom: -8px;
@@ -429,7 +437,7 @@ li {
         font-size: 20px;
     }
 
-    .youtube-more-results {
+    .youtube-more-results, .edamam-more-results {
         max-width: 300px;
     }
 }
@@ -489,7 +497,7 @@ li {
         font-size: 22px;
     }
 
-    .youtube-more-results {
+    .youtube-more-results, .edamam-more-results {
         font-size: 28px;
         max-width: 450px;
     }
@@ -542,6 +550,10 @@ li {
         margin-right: 4%;
     }
 
+    .vid-attribution {
+        width: 180px;
+    }
+
     .container {
         width: 30%;
     }
@@ -551,7 +563,7 @@ li {
         height: 190px;
     }
 
-    .youtube-more-results {
+    .youtube-more-results, .edamam-more-results {
         max-width: 300px;
     }
 
