@@ -32,7 +32,7 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: #fc5e03;
-    position: absolute;
+    position: fixed;
     -webkit-animation-name: transitions;
     -webkit-animation-duration: 2s;
     animation-name: transitions;
