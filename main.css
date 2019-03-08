@@ -36,15 +36,15 @@ body {
 }
 
 @-webkit-keyframes transitions {
-    0%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
-    60%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
-    100% {width: 100vw; height: 100vh; left: 100vw; top: 0px;}
+    0%   {left: 0px; top: 0px;}
+    60%   {left: 0px; top: 0px;}
+    100% {left: 100vw; top: 0px;}
 }
 
 @keyframes transitions {
-    0%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
-    60%   {width: 100vw; height: 100vh; left: 0px; top: 0px;}
-    100% {width: 100vw; height: 100vh; left: 100vw; top: 0px;}
+    0%   {left: 0px; top: 0px;}
+    60%   {left: 0px; top: 0px;}
+    100% {left: 100vw; top: 0px;}
 }
 
 .large-header {

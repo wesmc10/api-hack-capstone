@@ -363,9 +363,10 @@ function prepareForDisplayingResults() {
     $('#food-type').val('');
 }
 
+
 //prepare page for displaying results above
 /*==============================================================================================================*/
-//on page load below
+//on load and submit below
 
 
 function watchForm() {
@@ -376,7 +377,7 @@ function watchForm() {
 
     $('.js-search-form').submit(event => {
         event.preventDefault();
-        let userInput = $('#food-type').val();
+        const userInput = $('#food-type').val();
         getTextRecipes(userInput);
         getRecipeVideos(userInput);
         getNutritionInfo(userInput);
