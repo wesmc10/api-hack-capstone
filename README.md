@@ -8,6 +8,12 @@
 
 <h2>Screenshots</h2>
 
+Landing Page
+<img src="landing_page.jpg">
+
+Results Page
+<img src="results_page.jpg">
+
 <h2>Motivation</h2>
 
 Everyone needs to eat, and most people need to cook at least some of the time.
