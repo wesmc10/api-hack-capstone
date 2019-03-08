@@ -94,7 +94,7 @@ function displayRecipeVideoResults(responseJson, userInput) {
                 <h3><a href="https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}" target="_blank">${title}</a></h3>
                 <p class="creator">By <a href="https://www.youtube.com/channel/${responseJson.items[i].snippet.channelId}" target="_blank">${responseJson.items[i].snippet.channelTitle}<a/></p>
                 <a href="https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}" target="_blank">
-                    <img src="${responseJson.items[i].snippet.thumbnails.default.url}" class="recipe-video-images" alt="${responseJson.items[i].snippet.title} video image">
+                    <img src="${responseJson.items[i].snippet.thumbnails.high.url}" class="recipe-video-images" alt="${responseJson.items[i].snippet.title} video image">
                 </a>
             </li>`
         );
