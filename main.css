@@ -428,6 +428,10 @@ li {
     h4 {
         font-size: 20px;
     }
+
+    .youtube-more-results {
+        max-width: 300px;
+    }
 }
 
 @media screen and (min-width: 700px) {
@@ -472,7 +476,7 @@ li {
         font-size: 33px;
     }
     
-    #nut-individual-results p, #text-individual-results {
+    #nut-individual-results p, #text-individual-results, #vid-individual-results p {
         font-size: 21px;
     }
 

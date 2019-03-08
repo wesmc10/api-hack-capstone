@@ -79,7 +79,7 @@ function displayRecipeVideoResults(responseJson, userInput) {
     $('#vid-individual-results').empty();
 
     if (responseJson.items.length === 0) {
-        $('#vid-individual-results').append('Sorry, I could not find any recipes for that food item. Please try modifying your search.');
+        $('#vid-individual-results').append('<p>Sorry, I could not find any recipe videos for that food item. Please try modifying your search.</p>');
     }
 
     for (let i = 0; i < responseJson.items.length; i++) {
