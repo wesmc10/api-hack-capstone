@@ -219,11 +219,6 @@ button:hover {
     text-align: center;
 }
 
-.error-message {
-    color: red;
-    text-align: center;
-}
-
 .hidden {
     display: none;
 }

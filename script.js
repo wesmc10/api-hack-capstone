@@ -64,9 +64,8 @@ function getTextRecipes(userInput) {
     })
     .then(responseJson => displayTextRecipeResults(responseJson))
     .catch(error => {
-        $('#js-error-message').text(`Something went wrong: ${error.message}`);
+        alert(`Something went wrong: ${error.message}`);
         $('#text-individual-results').empty();
-        $('#text-individual-results').addClass('error-message').append(`Something went wrong: ${error.message}`);
     });
 }
 
@@ -138,9 +137,8 @@ function getRecipeVideos(userInput) {
     })
     .then(responseJson => displayRecipeVideoResults(responseJson, userInput))
     .catch(error => {
-        $('#js-error-message').text(`Something went wrong: ${error.message}`);
+        alert(`Something went wrong: ${error.message}`);
         $('#vid-individual-results').empty();
-        $('#vid-individual-results').addClass('error-message').append(`Something went wrong: ${error.message}`);
     });
 }
 
@@ -210,9 +208,9 @@ function getNutritionInfo(userInput) {
     })
     .then(responseJson => displayNutritionInfoResults(responseJson))
     .catch(error => {
-        $('#js-error-message').text(`Something went wrong: ${error.message}`);
+        alert(`Something went wrong: ${error.message}`);
         $('#nut-individual-results').empty();
-        $('#nut-individual-results').addClass('error-message').append(`Something went wrong: ${error.message}`);
+        $('#nut-individual-results').append('<p>Sorry, I could not find any nutrition information for that food item. Please try modifying your search.</p>');
     })
 }
 
