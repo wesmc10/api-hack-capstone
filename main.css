@@ -193,7 +193,7 @@ button:hover {
 }
 
 .youtube-more-results a:hover, .edamam-more-results a:hover, .youtube-more-results a:focus, .edamam-more-results a:focus {
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .creator {
