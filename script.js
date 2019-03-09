@@ -167,9 +167,9 @@ function capitalizeFirstLetter(string) {
 
 
 function displayNutritionInfoResults(responseJson) {
-    $('#nut-individual-results').empty();
+    $('#nutrition-individual-results').empty();
 
-    $('#nut-individual-results').append(
+    $('#nutrition-individual-results').append(
         `<li>
             <h3>${capitalizeFirstLetter(responseJson.foods[0].food_name)}</h3>
             <p>Serving Size: ${responseJson.foods[0].serving_qty} ${responseJson.foods[0].serving_unit} (${Math.round(responseJson.foods[0].serving_weight_grams)}g)</p>
@@ -191,8 +191,8 @@ function displayNutritionInfoResults(responseJson) {
 
 
 function getNutritionInfo(userInput) {
-    const nutAppId = '6cab22bc';
-    const nutApiKey = '465ee2bcbbae8b0562cfed7aa48a9a9a';
+    const nutritionAppId = '6cab22bc';
+    const nutritionApiKey = '465ee2bcbbae8b0562cfed7aa48a9a9a';
     const url = 'https://trackapi.nutritionix.com/v2/natural/nutrients';
     const data = {'query': userInput};
 
@@ -200,8 +200,8 @@ function getNutritionInfo(userInput) {
       method: 'POST',
       mode: 'cors',
       headers: new Headers({
-        'x-app-id': nutAppId,
-        'x-app-key': nutApiKey,
+        'x-app-id': nutritionAppId,
+        'x-app-key': nutritionApiKey,
         'Content-Type': 'application/json',
       }),
       body: JSON.stringify(data),
@@ -215,8 +215,8 @@ function getNutritionInfo(userInput) {
     .then(responseJson => displayNutritionInfoResults(responseJson))
     .catch(error => {
         alert(`Something went wrong: ${error.message}`);
-        $('#nut-individual-results').empty();
-        $('#nut-individual-results').append('<p>Sorry, I could not find any nutrition information for that food item. Please try modifying your search.</p>');
+        $('#nutrition-individual-results').empty();
+        $('#nutrition-individual-results').append('<p>Sorry, I could not find any nutrition information for that food item. Please try modifying your search.</p>');
     })
 }
 
@@ -226,7 +226,7 @@ function getNutritionInfo(userInput) {
 //scroll features below
 
 
-function nutInfoScroll() {
+function nutritionInfoScroll() {
     let previousPosition = window.pageYOffset;
 
     $(window).on('scroll', function(event) {
@@ -393,7 +393,7 @@ function watchForm() {
         scrollToVideos();
         windowResize();
         windowSize();
-        nutInfoScroll();
+        nutritionInfoScroll();
         switchHeader();
         switchHeaderResize();
         prepareForDisplayingResults();

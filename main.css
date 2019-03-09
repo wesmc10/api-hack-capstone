@@ -201,7 +201,7 @@ button:hover {
     font-weight: 500;
 }
 
-#nut-individual-results p {
+#nutrition-individual-results p {
     font-weight: 500;
 }
 
@@ -337,7 +337,7 @@ li {
     margin-top: 20px;
 }
 
-.nut-attribution {
+.nutrition-attribution {
     width: 200px;
 }
 
@@ -365,7 +365,7 @@ li {
     padding-top: 15px;
 }
 
-#nut-individual-results, #text-individual-results, #vid-individual-results {
+#nutrition-individual-results, #text-individual-results, #vid-individual-results {
     color: black;
 }
 
@@ -424,7 +424,7 @@ li {
         font-size: 30px;
     }
     
-    #nut-individual-results p, #text-individual-results {
+    #nutrition-individual-results p, #text-individual-results {
         font-size: 19px;
     }
 
@@ -484,7 +484,7 @@ li {
         font-size: 33px;
     }
     
-    #nut-individual-results p, #text-individual-results, #vid-individual-results p {
+    #nutrition-individual-results p, #text-individual-results, #vid-individual-results p {
         font-size: 21px;
     }
 
@@ -574,18 +574,18 @@ li {
         margin-right: 0;
         position: fixed;
         width: 30%;
-        -webkit-animation-name: nut-scroll-up;
+        -webkit-animation-name: nutrition-scroll-up;
         -webkit-animation-duration: 0.55s;
-        animation-name: nut-scroll-up;
+        animation-name: nutrition-scroll-up;
         animation-duration: 0.55s;
     }
     
-    @-webkit-keyframes nut-scroll-up {
+    @-webkit-keyframes nutrition-scroll-up {
         0%   {top: 150px;}
         100% {top: 50px;}
     }
     
-    @keyframes nut-scroll-up {
+    @keyframes nutrition-scroll-up {
         0%   {top: 150px;}
         100% {top: 50px;}
     }
@@ -597,18 +597,18 @@ li {
         margin-right: 0;
         position: fixed;
         width: 30%;
-        -webkit-animation-name: nut-scroll-down;
+        -webkit-animation-name: nutrition-scroll-down;
         -webkit-animation-duration: 0.55s;
-        animation-name: nut-scroll-down;
+        animation-name: nutrition-scroll-down;
         animation-duration: 0.55s;
     }
     
-    @-webkit-keyframes nut-scroll-down {
+    @-webkit-keyframes nutrition-scroll-down {
         0%   {top: 50px;}
         100% {top: 150px;}
     }
     
-    @keyframes nut-scroll-down {
+    @keyframes nutrition-scroll-down {
         0%   {top: 50px;}
         100% {top: 150px;}
     }
