@@ -9,7 +9,8 @@ function displayTextRecipeResults(responseJson, userInput) {
     }
 
     for (let i = 0; i < responseJson.hits.length; i++) {
-
+        
+        //make sure recipe titles are no longer than 55 characters
         let label = responseJson.hits[i].recipe.label;
         if (label.length > 55) {
             label = label.substring(0, 55).trim() + '...';
@@ -52,6 +53,8 @@ function getTextRecipes(userInput) {
     };
     const textQueryString = formatTextRecipeParams(textParams);
     const textUrl = textSearchUrl + '?' + textQueryString;
+
+    //add a header for faster load
     const options = {
         headers: new Headers({
             'Accept-Encoding': 'gzip'
