@@ -5,7 +5,8 @@ function displayTextRecipeResults(responseJson, userInput) {
     $('#text-individual-results').empty();
 
     if (responseJson.hits.length === 0) {
-        $('#text-individual-results').append('Sorry, I could not find any recipes for that food item. Please try modifying your search.');
+        $('#text-individual-results').append(
+            'Sorry, I could not find any recipes for that food item. Please try modifying your search.');
     }
 
     for (let i = 0; i < responseJson.hits.length; i++) {
@@ -21,14 +22,16 @@ function displayTextRecipeResults(responseJson, userInput) {
                 <h3><a href="${responseJson.hits[i].recipe.url}" target="_blank">${label}</a></h3>
                 <p class="creator">By ${responseJson.hits[i].recipe.source}</p>
                 <a href="${responseJson.hits[i].recipe.url}" target="_blank">
-                    <img src="${responseJson.hits[i].recipe.image}" class="text-recipe-images" alt="${responseJson.hits[i].recipe.label} image">
+                    <img src="${responseJson.hits[i].recipe.image}" class="text-recipe-images" 
+                    alt="${responseJson.hits[i].recipe.label} image">
                 </a>
             </li>`
         );
     }
 
     $('#text-individual-results').append(`<h3 class="edamam-more-results"><a href="https://www.edamam.com/recipes/${userInput}" 
-    target="_blank">More results on Edamam <img src="https://image.flaticon.com/icons/svg/66/66831.svg" class="more-results" alt="arrow image icon"></a></h3>`);
+    target="_blank">More results on Edamam <img src="https://image.flaticon.com/icons/svg/66/66831.svg" class="more-results" 
+    alt="arrow image icon"></a></h3>`);
 }
 
 
@@ -85,7 +88,8 @@ function displayRecipeVideoResults(responseJson, userInput) {
     $('#vid-individual-results').empty();
 
     if (responseJson.items.length === 0) {
-        $('#vid-individual-results').append('<p>Sorry, I could not find any recipe videos for that food item. Please try modifying your search.</p>');
+        $('#vid-individual-results').append(
+            '<p>Sorry, I could not find any recipe videos for that food item. Please try modifying your search.</p>');
     }
 
     for (let i = 0; i < responseJson.items.length; i++) {
@@ -98,16 +102,19 @@ function displayRecipeVideoResults(responseJson, userInput) {
         $('#vid-individual-results').append(
             `<li>
                 <h3><a href="https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}" target="_blank">${title}</a></h3>
-                <p class="creator">By <a href="https://www.youtube.com/channel/${responseJson.items[i].snippet.channelId}" target="_blank">${responseJson.items[i].snippet.channelTitle}<a/></p>
+                <p class="creator">By <a href="https://www.youtube.com/channel/${responseJson.items[i].snippet.channelId}" 
+                target="_blank">${responseJson.items[i].snippet.channelTitle}<a/></p>
                 <a href="https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}" target="_blank">
-                    <img src="${responseJson.items[i].snippet.thumbnails.high.url}" class="recipe-video-images" alt="${responseJson.items[i].snippet.title} video image">
+                    <img src="${responseJson.items[i].snippet.thumbnails.high.url}" class="recipe-video-images" 
+                    alt="${responseJson.items[i].snippet.title} video image">
                 </a>
             </li>`
         );
     }
 
     $('#vid-individual-results').append(`<h3 class="youtube-more-results"><a href="https://www.youtube.com/results?search_query=${userInput}+recipes" 
-    target="_blank">More results on YouTube <img src="https://image.flaticon.com/icons/svg/66/66831.svg" class="more-results" alt="arrow image icon"></a></h3>`);
+    target="_blank">More results on YouTube <img src="https://image.flaticon.com/icons/svg/66/66831.svg" class="more-results" 
+    alt="arrow image icon"></a></h3>`);
 }
 
 
@@ -172,7 +179,8 @@ function displayNutritionInfoResults(responseJson) {
     $('#nutrition-individual-results').append(
         `<li>
             <h3>${capitalizeFirstLetter(responseJson.foods[0].food_name)}</h3>
-            <p>Serving Size: ${responseJson.foods[0].serving_qty} ${responseJson.foods[0].serving_unit} (${Math.round(responseJson.foods[0].serving_weight_grams)}g)</p>
+            <p>Serving Size: ${responseJson.foods[0].serving_qty} ${responseJson.foods[0].serving_unit} 
+            (${Math.round(responseJson.foods[0].serving_weight_grams)}g)</p>
             <h4>Amount Per Serving</h4>
             <p>Calories: ${Math.round(responseJson.foods[0].nf_calories)}</p>
             <p>Total Fat: ${Math.round(responseJson.foods[0].nf_total_fat)}g</p>
@@ -216,7 +224,8 @@ function getNutritionInfo(userInput) {
     .catch(error => {
         alert(`Something went wrong: ${error.message}`);
         $('#nutrition-individual-results').empty();
-        $('#nutrition-individual-results').append('<p>Sorry, I could not find any nutrition information for that food item. Please try modifying your search.</p>');
+        $('#nutrition-individual-results').append(
+            '<p>Sorry, I could not find any nutrition information for that food item. Please try modifying your search.</p>');
     })
 }
 
