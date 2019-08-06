@@ -66,7 +66,7 @@ function getTextRecipes(userInput) {
 
     fetch(textUrl, options)
     .then(response => {
-        if(response.ok) {
+        if (response.ok) {
             return response.json();
         }
         throw new Error(response.statusText);
@@ -128,7 +128,7 @@ function formatVideoRecipeParams(vidParams) {
 
 function getRecipeVideos(userInput) {
     const vidApiKey = 'AIzaSyBaSFkq0Cvxl_3eoA_n_DSrflba4SHorMw';
-    const vidSearchUrl = 'https://cors.io?https://www.googleapis.com/youtube/v3/search';
+    const vidSearchUrl = 'https://www.googleapis.com/youtube/v3/search';
     const vidParams = {
         part: 'snippet',
         key: vidApiKey,
@@ -140,6 +140,7 @@ function getRecipeVideos(userInput) {
     };
     const vidQueryString = formatVideoRecipeParams(vidParams);
     const vidUrl = vidSearchUrl + '?' + vidQueryString;
+    // 'https://cors.io?https://www.googleapis.com/youtube/v3/search'
 
     fetch(vidUrl)
     .then(response => {
@@ -396,7 +397,7 @@ function watchForm() {
         getTextRecipes(userInput);
         getRecipeVideos(userInput);
         getNutritionInfo(userInput);
-        navBarUpOnScrollDown()
+        navBarUpOnScrollDown();
         scrollToTop();
         scrollToRecipes();
         scrollToVideos();
