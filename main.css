@@ -173,6 +173,9 @@ button {
     transition: background-size 0.4s 0s;
     border-radius: 0 5px 5px 0;
     vertical-align: middle;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 button:hover {
@@ -221,6 +224,7 @@ button:hover {
 
 .search-form {
     text-align: center;
+    position: relative;
 }
 
 .hidden {
