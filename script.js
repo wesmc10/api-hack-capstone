@@ -140,7 +140,6 @@ function getRecipeVideos(userInput) {
     };
     const vidQueryString = formatVideoRecipeParams(vidParams);
     const vidUrl = vidSearchUrl + '?' + vidQueryString;
-    // 'https://cors.io?https://www.googleapis.com/youtube/v3/search'
 
     fetch(vidUrl)
     .then(response => {
