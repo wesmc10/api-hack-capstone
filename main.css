@@ -160,6 +160,7 @@ input {
     border-radius: 5px;
     font-size: 18px;
     vertical-align: middle;
+    position: relative;
 }
 
 button {
@@ -206,10 +207,13 @@ button:hover {
 }
 
 .search-icon {
-    padding: 0 5px 0;
+    padding: 0 5px;
     width: 40px;
     height: 25px;
     border-radius: 0 5px 5px 0;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .description {
